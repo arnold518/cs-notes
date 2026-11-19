@@ -1,0 +1,2685 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://arnold518.github.io/cs-notes/qcqi/2.4/">
+      
+      
+        <link rel="prev" href="../2.2/">
+      
+      
+        <link rel="next" href="../4.2/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>2.4. The Density Operator - Computer Science Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%206a6%206%200%200%201%206%206c0%202.22-1.21%204.16-3%205.2V19a1%201%200%200%201-1%201h-4a1%201%200%200%201-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6%206%200%200%201%206-6m2%2015v1a1%201%200%200%201-1%201h-2a1%201%200%200%201-1-1v-1zm6-10h3v2h-3zM1%2011h3v2H1zM13%201v3h-2V1zM4.92%203.5l2.13%202.14-1.42%201.41L3.5%204.93zm12.03%202.13%202.12-2.13%201.43%201.43-2.13%202.12z%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200a256%20256%200%201%201%200%20512%20256%20256%200%201%201%200-512m-24%20120v136c0%208%204%2015.5%2010.7%2020l96%2064c11%207.4%2025.9%204.4%2033.3-6.7s4.4-25.9-6.7-33.3L280%20243.2V120c0-13.3-10.7-24-24-24s-24%2010.7-24%2024%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/home.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#24-the-density-operator" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../.." title="Computer Science Notes" class="md-header__button md-logo" aria-label="Computer Science Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computer Science Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.4. The Density Operator
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="공유" aria-label="공유" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnold518/cs-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/cs-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../paper-review/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Paper Review
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mfdnn/format/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mathematical Foundations of Deep Neural Networks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../rl/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reinforcement Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Quantum Computation and Quantum Information
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Computer Science Notes" class="md-nav__button md-logo" aria-label="Computer Science Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computer Science Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnold518/cs-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/cs-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../paper-review/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Paper Review
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Paper Review
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Artificial Intelligence
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Artificial Intelligence
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paper-review/1.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Recurrent Neural Network
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paper-review/1.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.5. Transformer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../mfdnn/format/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Mathematical Foundations of Deep Neural Networks
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Mathematical Foundations of Deep Neural Networks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 1. Optimization and Stochastic Gradient Descent
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 1. Optimization and Stochastic Gradient Descent
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Optimization Problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Gradient Descent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1PSpoeseUPIptYQOPuQpxNawxtZbVR_K6/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 2. Shallow Neural Networks to Multilayer Perceptrons
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 2. Shallow Neural Networks to Multilayer Perceptrons
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Shallow Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Deep Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/15kXC3cJUV63gZNfXK6JdPPuSrwQZBzI8/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 3. Convolutional Neural Networks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 3. Convolutional Neural Networks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Convolutional Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Foundations of Design and Training of Deep Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. ImageNet Challenge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/12O9fLasWDA-kOKBD-lE-1UhCl-PoDf0z/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 4. CNNs for Other Supervised Learning Tasks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 4. CNNs for Other Supervised Learning Tasks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. CNNs for Other Supervised Learning Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/16IOKVF6IiDMyUvL73pGKBaEMKyXvezLB/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 5. Unsupervised Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 5. Unsupervised Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Autoencoder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Flow Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Variational Autoencoders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Generative Adversarial Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1JM5k-e6LkhZ0vXRlfROWpiuw4YC85Jv1/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch A. Appendix - Basics of Monte Carlo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Ch A. Appendix - Basics of Monte Carlo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Basics of Monte Carlo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/18b01xoORd0LFQmpfc_4ou5Rv44MY1neg/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter A Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python Basics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Python Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1-iY9XfDhWNRDq3z_wVVvOzU04aRQWAfW/view?usp=drive_link" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1BANbCC6jBjPEUFSRJMFkcLbc4oVmoQHm/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1-Bc11RZmno6yx37kfVLjsyY-XKpLK5Je/view?usp=drive_link" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../rl/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Reinforcement Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum Computation and Quantum Information
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum Computation and Quantum Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 2. Introduction to Quantum Mechanics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 2. Introduction to Quantum Mechanics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. Linear Algebra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2. The Postulates of Quantum Mechanics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2.4. The Density Operator
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4. The Density Operator
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#241-ensembles-of-quantum-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1. Ensembles of Quantum States
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-general-properties-of-the-density-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 General Properties of the Density Operator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-the-reduced-density-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3. The Reduced Density Operator
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 4. Quantum Circuits
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 4. Quantum Circuits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2. Single Qubit Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#241-ensembles-of-quantum-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1. Ensembles of Quantum States
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-general-properties-of-the-density-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 General Properties of the Density Operator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-the-reduced-density-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3. The Reduced Density Operator
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="24-the-density-operator">2.4. The density operator<a class="headerlink" href="#24-the-density-operator" title="Permanent link">&para;</a></h1>
+<h2 id="241-ensembles-of-quantum-states">2.4.1. Ensembles of Quantum States<a class="headerlink" href="#241-ensembles-of-quantum-states" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.4.1 : Ensemble of pure states, density operator</p>
+<p>Suppose a quantum system is in one of a number of states <span class="arithmatex">\(\left|\psi_{i}\right\rangle\)</span> with respective probabilities <span class="arithmatex">\(p_{i}\)</span>.
+We shall call <span class="arithmatex">\(\left\{p_{i},\left|\psi_{i}\right\rangle\right\}\)</span> an <strong>ensemble of pure states</strong>.</p>
+<p>The <strong>density operator</strong> for the system is defined by</p>
+<div class="arithmatex">\[
+\rho \equiv \sum_{i} p_{i}\left|\psi_{i}\right\rangle\left\langle\psi_{i}\right|.
+\]</div>
+<p>The density operator is often known as the <strong>density matrix</strong>, and we will use the two terms interchangeably.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.4.2 : Evolution of density operators under unitary operators (postulate 2)</p>
+<p>Suppose a closed system is evolved by a unitary operator <span class="arithmatex">\(U\)</span>.
+If the system is initially in state <span class="arithmatex">\(\left|\psi_{i}\right\rangle\)</span> with probability <span class="arithmatex">\(p_{i}\)</span>, then after evolution it is in state <span class="arithmatex">\(U\left|\psi_{i}\right\rangle\)</span> with the same probability <span class="arithmatex">\(p_{i}\)</span>.
+The density operator therefore transforms as</p>
+<div class="arithmatex">\[
+\rho=\sum_{i} p_{i}\left|\psi_{i}\right\rangle\left\langle\psi_{i}\right| \xrightarrow{U} \sum_{i} p_{i} U\left|\psi_{i}\right\rangle\left\langle\psi_{i}\right| U^{\dagger}=U \rho U^{\dagger}.
+\]</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.4.3 : Measurement in density matrix form (postulate 3)</p>
+<p>Measurements are also easily described in the density operator language.
+Suppose we perform a measurement described by measurement operators <span class="arithmatex">\(M_{m}\)</span>.
+If the initial state was <span class="arithmatex">\(|\psi_i\rangle\)</span>, then the probability of getting result <span class="arithmatex">\(m\)</span> is</p>
+<div class="arithmatex">\[
+p(m \mid i)=
+\left\langle\psi_{i}\right| M_{m}^{\dagger} M_{m}\left|\psi_{i}\right\rangle=\operatorname{tr}\left(M_{m}^{\dagger} M_{m}\left|\psi_{i}\right\rangle\left\langle\psi_{i}\right|\right)
+\]</div>
+<p>where we have used <strong>Theorem 2.1.62</strong> to obtain the last equality.
+By the law of total probability, the probability of obtaining result <span class="arithmatex">\(m\)</span> is</p>
+<div class="arithmatex">\[
+\begin{align*}
+p(m) &amp; =\sum_{i} p(m \mid i) p_{i} \\
+&amp; =\sum_{i} p_{i} \operatorname{tr}\left(M_{m}^{\dagger} M_{m}\left|\psi_{i}\right\rangle\left\langle\psi_{i}\right|\right) \\
+&amp; =\operatorname{tr}\left(M_{m}^{\dagger} M_{m} \rho\right)
+\end{align*}
+\]</div>
+<p>What is the density operator of the system after obtaining the measurement result <span class="arithmatex">\(m\)</span>?
+If the initial state was <span class="arithmatex">\(|\psi_{i}\rangle\)</span>, then the state after obtaining the result <span class="arithmatex">\(m\)</span> is</p>
+<div class="arithmatex">\[
+\left|\psi_{i}^{m}\right\rangle=\frac{M_{m}\left|\psi_{i}\right\rangle}{\sqrt{\left\langle\psi_{i}\right| M_{m}^{\dagger} M_{m}\left|\psi_{i}\right\rangle}}
+\]</div>
+<p>Thus, after a measurement that yields result <span class="arithmatex">\(m\)</span> we have an ensemble of states <span class="arithmatex">\(|\psi_{i}^{m}\rangle\)</span> with respective probabilities <span class="arithmatex">\(p(i \mid m)\)</span>.
+The corresponding density operator <span class="arithmatex">\(\rho_{m}\)</span> is therefore</p>
+<div class="arithmatex">\[
+\rho_{m}=\sum_{i} p(i \mid m)\left|\psi_{i}^{m}\right\rangle\left\langle\psi_{i}^{m}\right|=\sum_{i} p(i \mid m) \frac{M_{m}\left|\psi_{i}\right\rangle\left\langle\psi_{i}\right| M_{m}^{\dagger}}{\left\langle\psi_{i}\right| M_{m}^{\dagger} M_{m}\left|\psi_{i}\right\rangle} .
+\]</div>
+<p>But by elementary probability theory, <span class="arithmatex">\(p(i \mid m)=p(m, i) / p(m)=p(m \mid i) p_{i} / p(m)\)</span>.
+Substituting from the previous formulas we obtain</p>
+<div class="arithmatex">\[
+\begin{align*}
+\rho_{m} &amp; =\sum_{i} p_{i} \frac{M_{m}\left|\psi_{i}\right\rangle\left\langle\psi_{i}\right| M_{m}^{\dagger}}{\operatorname{tr}\left(M_{m}^{\dagger} M_{m} \rho\right)} \\
+&amp; =\frac{M_{m} \rho M_{m}^{\dagger}}{\operatorname{tr}\left(M_{m}^{\dagger} M_{m} \rho\right)}.
+\end{align*}
+\]</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.4.4 : Pure and mixed states</p>
+<p>A quantum system whose state <span class="arithmatex">\(|\psi\rangle\)</span> is known exactly is said to be in a <strong>pure state</strong>.
+In this case the density operator is simply <span class="arithmatex">\(\rho=|\psi\rangle\langle\psi|\)</span>.
+Otherwise, <span class="arithmatex">\(\rho\)</span> is in a <strong>mixed state</strong>; it is said to be a mixture of the different pure states in the ensemble for <span class="arithmatex">\(\rho\)</span>.</p>
+<p>A few words of warning about the nomenclature: sometimes people use the term mixed state as a catch-all to include both pure and mixed quantum states.
+The origin for this usage seems to be that it implies the writer is not necessarily assuming that a state is pure.
+Second, the term pure state is often used in reference to a state vector <span class="arithmatex">\(|\psi\rangle\)</span>, to distinguish it from a density operator <span class="arithmatex">\(\rho\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.4.5 : Criterion to decide if a state is mixed or pure</p>
+<p>Let <span class="arithmatex">\(\rho\)</span> be a density operator.
+Then <span class="arithmatex">\(\operatorname{tr}\left(\rho^{2}\right) \leq 1\)</span>.
+Equality holds if and only if <span class="arithmatex">\(\rho\)</span> is a pure state.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Write <span class="arithmatex">\(\rho\)</span> in its spectral decomposition as <span class="arithmatex">\(\rho=\sum_i \lambda_i |i\rangle\langle i|\)</span>.
+Since <span class="arithmatex">\(\rho\)</span> is a density operator, <span class="arithmatex">\(\lambda_i \geq 0\)</span> and <span class="arithmatex">\(\sum_i \lambda_i = 1\)</span>.
+Therefore</p>
+<div class="arithmatex">\[
+\operatorname{tr}\left(\rho^{2}\right)=\sum_i \lambda_i^{2}.
+\]</div>
+<p>Since <span class="arithmatex">\(\sum_i \lambda_i = 1\)</span> and each <span class="arithmatex">\(\lambda_i \geq 0\)</span>, we have</p>
+<div class="arithmatex">\[
+\sum_i \lambda_i^{2} \leq \left(\sum_i \lambda_i\right)^2 = 1.
+\]</div>
+<p>Hence <span class="arithmatex">\(\operatorname{tr}\left(\rho^{2}\right) \leq 1\)</span>.</p>
+<p>Equality requires exactly one <span class="arithmatex">\(\lambda_i\)</span> be nonzero.
+Then one eigenvalue is <span class="arithmatex">\(1\)</span> and the rest are <span class="arithmatex">\(0\)</span>, so <span class="arithmatex">\(\rho\)</span> is rank one and therefore pure.</p>
+<p>Conversely, for a pure state, <span class="arithmatex">\(\rho^2=\rho\)</span>.
+Hence</p>
+<div class="arithmatex">\[
+\operatorname{tr}\left(\rho^{2}\right)=\operatorname{tr}(\rho)=1.
+\]</div>
+</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.4.6 : Mixture of density matrices</p>
+<p>If the system is prepared in state <span class="arithmatex">\(\rho_{i}\)</span> with probability <span class="arithmatex">\(p_{i}\)</span>, then the corresponding density matrix is <span class="arithmatex">\(\sum_{i} p_{i} \rho_{i}\)</span>.</p>
+<p>To justify this, write <span class="arithmatex">\(\rho_{i}=\sum_{j} p_{ij}|\psi_{ij}\rangle\langle\psi_{ij}|\)</span> for fixed <span class="arithmatex">\(i\)</span>, so that state <span class="arithmatex">\(|\psi_{ij}\rangle\)</span> occurs with probability <span class="arithmatex">\(p_{i} p_{ij}\)</span>.</p>
+<div class="arithmatex">\[
+\rho=\sum_{ij} p_{i} p_{ij}|\psi_{ij}\rangle\langle\psi_{ij}|.
+\]</div>
+<p>For each fixed <span class="arithmatex">\(i\)</span> this becomes</p>
+<div class="arithmatex">\[
+\rho=\sum_{i} p_{i} \rho_{i}.
+\]</div>
+<p>We therefore call <span class="arithmatex">\(\rho\)</span> a mixture of the states <span class="arithmatex">\(\rho_{i}\)</span> with probabilities <span class="arithmatex">\(p_{i}\)</span>.
+This idea reappears in quantum-noise models, where noise produces classical uncertainty about which state actually describes the system.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.4.7 : State after forgotten measurement result</p>
+<p>Imagine that, for some reason, our record of the result <span class="arithmatex">\(m\)</span> of a measurement was lost.
+We would have a quantum system in state <span class="arithmatex">\(\rho_{m}\)</span> with probability <span class="arithmatex">\(p(m)\)</span>, but we would no longer know the actual value of <span class="arithmatex">\(m\)</span>.
+According to <strong>Concept 2.4.6</strong>, the state of such a quantum system is therefore described by the density operator</p>
+<div class="arithmatex">\[
+\begin{align*}
+\rho &amp; =\sum_{m} p(m) \rho_{m}  \\n    &amp; =\sum_{m} \operatorname{tr}\left(M_{m}^{\dagger} M_{m} \rho\right) \frac{M_{m} \rho M_{m}^{\dagger}}{\operatorname{tr}\left(M_{m}^{\dagger} M_{m} \rho\right)}  \\n    &amp; =\sum_{m} M_{m} \rho M_{m}^{\dagger}
+\end{align*}
+\]</div>
+<p>This compact formula is a useful starting point for analyzing further operations on the system after the measurement information is forgotten.</p>
+</div>
+<h2 id="242-general-properties-of-the-density-operator">2.4.2 General Properties of the Density Operator<a class="headerlink" href="#242-general-properties-of-the-density-operator" title="Permanent link">&para;</a></h2>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.4.8 : Characterization of density operators</p>
+<p>An operator <span class="arithmatex">\(\rho\)</span> is the density operator associated to some ensemble <span class="arithmatex">\(\{p_i,|\psi_i\rangle\}\)</span> if and only if it satisfies the following conditions:</p>
+<ol>
+<li>(Trace condition) The trace of <span class="arithmatex">\(\rho\)</span> equals one.</li>
+<li>(Positivity condition) The operator <span class="arithmatex">\(\rho\)</span> is positive.</li>
+</ol>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Suppose <span class="arithmatex">\(\rho=\sum_i p_i|\psi_i\rangle\langle\psi_i|\)</span> is a density operator.
+Then</p>
+<div class="arithmatex">\[
+\operatorname{tr}(\rho)=\sum_i p_i\operatorname{tr}(|\psi_i\rangle\langle\psi_i|)=\sum_i p_i=1.
+\]</div>
+<p>so the trace condition <span class="arithmatex">\(\operatorname{tr}(\rho)=1\)</span> is satisfied.
+For any vector <span class="arithmatex">\(|\varphi\rangle\)</span>, we have</p>
+<div class="arithmatex">\[
+\langle\varphi|\rho|\varphi\rangle
+=\sum_i p_i\langle\varphi|\psi_i\rangle\langle\psi_i|\varphi\rangle
+=\sum_i p_i|\langle\varphi|\psi_i\rangle|^2
+\ge0.
+\]</div>
+<p>so the positivity condition is satisfied.</p>
+<p>Conversely, suppose <span class="arithmatex">\(\rho\)</span> is any operator satisfying the trace and positivity conditions.
+Since <span class="arithmatex">\(\rho\)</span> is positive, it has a spectral decomposition</p>
+<div class="arithmatex">\[
+\rho=\sum_j \lambda_j |j\rangle\langle j|.
+\]</div>
+<p>Here the vectors <span class="arithmatex">\(|j\rangle\)</span> are orthogonal, and the eigenvalues <span class="arithmatex">\(\lambda_j\)</span> are real and non-negative.
+The trace condition gives <span class="arithmatex">\(\sum_j\lambda_j=1\)</span>.
+Therefore a system in the state <span class="arithmatex">\(|j\rangle\)</span> with probability <span class="arithmatex">\(\lambda_j\)</span> has density operator <span class="arithmatex">\(\rho\)</span>.
+Hence the ensemble <span class="arithmatex">\(\{\lambda_j,|j\rangle\}\)</span> is an ensemble giving rise to the density operator <span class="arithmatex">\(\rho\)</span>.
+In this way, a density operator can be characterized intrinsically as a positive operator with unit trace.</p>
+</div>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.4.9 : Postulates 1, 2, 3, 4 for density operators</p>
+<ul>
+<li>
+<p><strong>Postulate 1</strong>  </p>
+<p>Postulate 1 associates to any isolated physical system a complex vector space with inner product as its state space.
+The system is completely described by its density operator <span class="arithmatex">\(\rho\)</span>, which is a positive operator with trace one.
+If the system is in the state <span class="arithmatex">\(\rho_i\)</span> with probability <span class="arithmatex">\(p_i\)</span>, then the density operator for the system is,</p>
+<div class="arithmatex">\[
+\sum_i p_i \rho_i.
+\]</div>
+</li>
+<li>
+<p><strong>Postulate 2</strong>  </p>
+<p>Postulate 2 gives the evolution of a closed quantum system as a unitary transformation.
+If the state is <span class="arithmatex">\(\rho\)</span> at time <span class="arithmatex">\(t_1\)</span> and is <span class="arithmatex">\(\rho'\)</span> at time <span class="arithmatex">\(t_2\)</span>, then,</p>
+<div class="arithmatex">\[
+\rho'=U\rho U^\dagger.
+\]</div>
+</li>
+<li>
+<p><strong>Postulate 3</strong>  </p>
+<p>Postulate 3 says that quantum measurements are described by operators <span class="arithmatex">\(\{M_m\}\)</span> acting on the state space.
+If the state is <span class="arithmatex">\(\rho\)</span>, then the probability for outcome <span class="arithmatex">\(m\)</span> is,</p>
+<div class="arithmatex">\[
+p(m)=\operatorname{tr}\left(M_m^\dagger M_m \rho\right).
+\]</div>
+<p>The post-measurement state is,</p>
+<div class="arithmatex">\[
+\frac{M_m \rho M_m^\dagger}{\operatorname{tr}\left(M_m^\dagger M_m \rho\right)}.
+\]</div>
+<p>The measurement operators satisfy,</p>
+<div class="arithmatex">\[
+\sum_m M_m^\dagger M_m=I.
+\]</div>
+</li>
+<li>
+<p><strong>Postulate 4</strong>  </p>
+<p>Postulate 4 says that the state space of a composite system is the tensor product of its component spaces.
+If systems <span class="arithmatex">\(1\)</span> through <span class="arithmatex">\(n\)</span> are in states <span class="arithmatex">\(\rho_1,\rho_2,\ldots,\rho_n\)</span>, then the joint state is.</p>
+<div class="arithmatex">\[
+\rho_1\otimes\rho_2\otimes\cdots\otimes\rho_n.
+\]</div>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.4.10 : Two ensembles for one density matrix</p>
+<p>It is a common fallacy to think that the eigenvectors and eigenvalues of a density matrix uniquely specify the underlying ensemble.
+Consider the density matrix</p>
+<div class="arithmatex">\[
+\rho=\frac{3}{4}|0\rangle\langle 0|+\frac{1}{4}|1\rangle\langle 1|.
+\]</div>
+<p>This is one valid ensemble decomposition.</p>
+<p>Instead, define</p>
+<div class="arithmatex">\[
+|a\rangle \equiv \sqrt{\frac{3}{4}}|0\rangle+\sqrt{\frac{1}{4}}|1\rangle,
+\]</div>
+<div class="arithmatex">\[
+|b\rangle \equiv \sqrt{\frac{3}{4}}|0\rangle-\sqrt{\frac{1}{4}}|1\rangle.
+\]</div>
+<p>Suppose the system is prepared in state <span class="arithmatex">\(|a\rangle\)</span> with probability <span class="arithmatex">\(1/2\)</span> and in state <span class="arithmatex">\(|b\rangle\)</span> with probability <span class="arithmatex">\(1/2\)</span>.
+The resulting density matrix is</p>
+<div class="arithmatex">\[
+\rho=\frac{1}{2}|a\rangle\langle a|+\frac{1}{2}|b\rangle\langle b|=\frac{3}{4}|0\rangle\langle 0|+\frac{1}{4}|1\rangle\langle 1|.
+\]</div>
+<p>This shows, according to <strong>Section 2.4.1</strong>, that two different ensembles can represent the same density matrix.
+The same density matrix is not tied to a single privileged decomposition.
+In general, eigenvectors and eigenvalues give one possible ensemble only.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.4.11 : Unitary freedom in the ensemble for density matrices</p>
+<p>A natural question is what class of ensembles gives rise to a particular density matrix.
+We define unnormalized vectors by <span class="arithmatex">\(\left|\tilde{\psi}_{i}\right\rangle=\sqrt{p_i}\left|\psi_i\right\rangle\)</span> and say they generate the operator <span class="arithmatex">\(\rho \equiv \sum_{i}\left|\tilde{\psi}_{i}\right\rangle\left\langle\tilde{\psi}_{i}\right|\)</span>.
+The sets <span class="arithmatex">\(\left|\tilde{\psi}_{i}\right\rangle\)</span> and <span class="arithmatex">\(\left|\tilde{\varphi}_{j}\right\rangle\)</span> generate the same density matrix if and only if there is a unitary matrix <span class="arithmatex">\(u_{ij}\)</span> such that</p>
+<div class="arithmatex">\[
+\left|\tilde{\psi}_{i}\right\rangle=\sum_{j} u_{i j}\left|\tilde{\varphi}_{j}\right\rangle,
+\]</div>
+<p>where we pad whichever set is smaller with zero vectors.
+As a consequence, normalized ensembles satisfy</p>
+<div class="arithmatex">\[
+\sqrt{p_{i}}\left|\psi_{i}\right\rangle=\sum_{j} u_{i j} \sqrt{q_{j}}\left|\varphi_{j}\right\rangle
+\]</div>
+<p>for some unitary <span class="arithmatex">\(u_{ij}\)</span>, where the smaller ensemble is padded by zero-probability elements.</p>
+<p>This theorem therefore characterizes the ensemble freedom, and indeed <strong>Example 2.4.10</strong> with two different decompositions is a special case of this theorem.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<ul>
+<li>
+<p>(<span class="arithmatex">\(\Rightarrow\)</span>)</p>
+<p>Suppose <span class="arithmatex">\(\left|\tilde{\psi}_{i}\right\rangle=\sum_{j} u_{i j}\left|\tilde{\varphi}_{j}\right\rangle\)</span> for some unitary <span class="arithmatex">\(u_{ij}\)</span>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\sum_{i}\left|\tilde{\psi}_{i}\right\rangle\left\langle\tilde{\psi}_{i}\right| &amp;=\sum_{i j k} u_{i j} u_{i k}^{*}\left|\tilde{\varphi}_{j}\right\rangle\left\langle\tilde{\varphi}_{k}\right|\\
+&amp;=\sum_{j k}\left(\sum_{i} u_{k i}^{\dagger} u_{i j}\right)\left|\tilde{\varphi}_{j}\right\rangle\left\langle\tilde{\varphi}_{k}\right|\\
+&amp;=\sum_{j k}\left(u^{\dagger} u\right)_{k j}\left|\tilde{\varphi}_{j}\right\rangle\left\langle\tilde{\varphi}_{k}\right|\\
+&amp;=\sum_{j k} \delta_{k j}\left|\tilde{\varphi}_{j}\right\rangle\left\langle\tilde{\varphi}_{k}\right|\\
+&amp;=\sum_{j}\left|\tilde{\varphi}_{j}\right\rangle\left\langle\tilde{\varphi}_{j}\right|.
+\end{aligned}
+\]</div>
+<p>Hence the two sets generate the same operator.</p>
+</li>
+<li>
+<p>(<span class="arithmatex">\(\Leftarrow\)</span>)</p>
+<p>Conversely, assume</p>
+<div class="arithmatex">\[
+A=\sum_{i}\left|\tilde{\psi}_{i}\right\rangle\left\langle\tilde{\psi}_{i}\right|=\sum_{j}\left|\tilde{\varphi}_{j}\right\rangle\left\langle\tilde{\varphi}_{j}\right|.
+\]</div>
+<p>Let <span class="arithmatex">\(A=\sum_{k} \lambda_{k}|k\rangle\langle k|\)</span> be an orthogonal decomposition with strictly positive <span class="arithmatex">\(\lambda_k\)</span>, and define <span class="arithmatex">\(|\tilde{k}\rangle \equiv \sqrt{\lambda_{k}}|k\rangle\)</span>.
+For any <span class="arithmatex">\(|\psi\rangle\)</span> orthogonal to the span of <span class="arithmatex">\(\{|\tilde{k}\rangle\}\)</span>, we have</p>
+<div class="arithmatex">\[
+0=\langle\psi| A|\psi\rangle=\sum_{i}|\langle\psi| \tilde{\psi}_{i}\rangle|^{2}.
+\]</div>
+<p>Therefore <span class="arithmatex">\(\langle\psi|\tilde{\psi}_{i}\rangle=0\)</span> for every <span class="arithmatex">\(i\)</span>, so each <span class="arithmatex">\(|\tilde{\psi}_{i}\rangle\)</span> is a linear combination of the <span class="arithmatex">\(|\tilde{k}\rangle\)</span>.
+Write <span class="arithmatex">\(|\tilde{\psi}_{i}\rangle=\sum_{k} c_{i k}|\tilde{k}\rangle\)</span>.
+Using <span class="arithmatex">\(A=\sum_k|\tilde{k}\rangle\langle\tilde{k}|=\sum_i |\tilde{\psi}_{i}\rangle\langle\tilde{\psi}_{i}|\)</span> gives</p>
+<div class="arithmatex">\[
+\sum_{k}|\tilde{k}\rangle\langle\tilde{k}|=\sum_{k l}\left(\sum_{i} c_{i k} c_{i l}^{*}\right)|\tilde{k}\rangle\langle\tilde{l}|.
+\]</div>
+<p>Since the operators <span class="arithmatex">\(|\tilde{k}\rangle\langle\tilde{l}|\)</span> are linearly independent, <span class="arithmatex">\(\sum_i c_{i k} c_{i l}^{*}=\delta_{k l}\)</span>.
+Therefore the coefficients <span class="arithmatex">\(c\)</span> can be extended by zero rows to a unitary <span class="arithmatex">\(v\)</span> and</p>
+<div class="arithmatex">\[
+\left|\tilde{\psi}_{i}\right\rangle=\sum_{k} v_{i k}|\tilde{k}\rangle.
+\]</div>
+<p>Similarly, there is a unitary <span class="arithmatex">\(w\)</span> with</p>
+<div class="arithmatex">\[
+\left|\tilde{\varphi}_{j}\right\rangle=\sum_{k} w_{j k}|\tilde{k}\rangle.
+\]</div>
+<p>Combining these equations gives</p>
+<div class="arithmatex">\[
+\left|\tilde{\psi}_{i}\right\rangle=\sum_{j}(v w^{\dagger})_{i j}\left|\tilde{\varphi}_{j}\right\rangle.
+\]</div>
+<p>The matrix <span class="arithmatex">\(u=v w^{\dagger}\)</span> is unitary, completing the converse.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.4.12 : Bloch sphere for mixed states</p>
+<ul>
+<li>
+<p>(a) Any density matrix <span class="arithmatex">\(\rho\)</span> for a single qubit can be written as</p>
+<div class="arithmatex">\[
+\rho = \frac{I+\vec{r} \cdot \vec{\sigma}}{2}.
+\]</div>
+<p>where <span class="arithmatex">\(\vec{r}\)</span> is a real three-dimensional vector with <span class="arithmatex">\(\|\vec{r}\| \leq 1\)</span>.
+The vector <span class="arithmatex">\(\vec{r}\)</span> is the Bloch vector for the state <span class="arithmatex">\(\rho\)</span>.</p>
+</li>
+<li>
+<p>(b) The Bloch vector for the state <span class="arithmatex">\(\rho=I / 2\)</span> is <span class="arithmatex">\(\vec{r}=0\)</span>.</p>
+</li>
+<li>(c) A state <span class="arithmatex">\(\rho\)</span> is pure if and only if <span class="arithmatex">\(\|\vec{r}\|=1\)</span>.</li>
+<li>(d) For pure states, this Bloch-vector description coincides with that in <strong>textbook Section 1.2</strong>.</li>
+</ul>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<ul>
+<li>
+<p>(a)  </p>
+<p>Every <span class="arithmatex">\(2 \times 2\)</span> Hermitian matrix has a unique Pauli expansion</p>
+<div class="arithmatex">\[
+\rho=\frac{1}{2}(a_0 I+a_x\sigma_x+a_y\sigma_y+a_z\sigma_z)=\frac{1}{2}(a_0 I+\vec a\cdot\vec\sigma).
+\]</div>
+<p>For a density matrix, <span class="arithmatex">\(\operatorname{tr}(\rho)=1\)</span>.
+Since <span class="arithmatex">\(\operatorname{tr}(\sigma_j)=0\)</span> and <span class="arithmatex">\(\operatorname{tr}(I)=2\)</span>, we get <span class="arithmatex">\(a_0=1\)</span>.
+Let <span class="arithmatex">\(\vec r=\vec a\)</span> to get <span class="arithmatex">\(\rho=(I+\vec r\cdot\vec\sigma)/2\)</span>.
+The square of <span class="arithmatex">\(\vec r\cdot\vec\sigma\)</span> is <span class="arithmatex">\(\|\vec r\|^2 I\)</span>.
+Therefore</p>
+<div class="arithmatex">\[
+\det(\rho-\lambda I)=\frac{(1-2\lambda)^2-\|\vec r\|^2}{4}.
+\]</div>
+<p>The eigenvalues are <span class="arithmatex">\(\lambda_{\pm}=(1\pm\|\vec r\|)/2\)</span>.
+Positivity gives <span class="arithmatex">\(\lambda_{\pm}\ge0\)</span>, so <span class="arithmatex">\(\|\vec r\|\le1\)</span>.
+Conversely, if <span class="arithmatex">\(\|\vec r\|\le1\)</span>, the same eigenvalue formula gives <span class="arithmatex">\(\lambda_{\pm}\ge0\)</span> and therefore <span class="arithmatex">\(\rho\ge0\)</span> with unit trace.
+Hence <span class="arithmatex">\(\rho\)</span> is exactly a density matrix of the claimed form.</p>
+</li>
+<li>
+<p>(b)  </p>
+<p>If <span class="arithmatex">\(\rho=I / 2\)</span>, then comparison with <span class="arithmatex">\(\rho=(I+\vec r\cdot\vec\sigma)/2\)</span> gives <span class="arithmatex">\(\vec r=0\)</span> by basis uniqueness.
+If <span class="arithmatex">\(\vec r=0\)</span>, then <span class="arithmatex">\(\rho=I/2\)</span>.</p>
+</li>
+<li>
+<p>(c)  </p>
+<p>A pure state satisfies <span class="arithmatex">\(\rho^2=\rho\)</span>.
+Using <span class="arithmatex">\((\vec r\cdot\vec\sigma)^2=\|\vec r\|^2 I\)</span>, we compute</p>
+<div class="arithmatex">\[
+\operatorname{tr}(\rho^2)=\frac{1+\|\vec r\|^2}{2}.
+\]</div>
+<p>Since purity is equivalent to <span class="arithmatex">\(\operatorname{tr}(\rho^2)=1\)</span>, we get <span class="arithmatex">\(\|\vec r\|=1\)</span>.
+If <span class="arithmatex">\(\|\vec r\|=1\)</span>, then eigenvalues are <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(0\)</span>, so <span class="arithmatex">\(\rho\)</span> is rank one and pure.
+If <span class="arithmatex">\(\rho\)</span> is pure, then <span class="arithmatex">\(\operatorname{tr}(\rho^2)=1\)</span>, and the formula gives <span class="arithmatex">\(\|\vec r\|=1\)</span>.</p>
+</li>
+<li>
+<p>(d)  </p>
+<p>For <span class="arithmatex">\(\rho=|\psi\rangle\langle\psi|\)</span> with
+<span class="arithmatex">\(|\psi\rangle=\cos(\theta/2)|0\rangle+e^{i\phi}\sin(\theta/2)|1\rangle\)</span>,
+one gets</p>
+<div class="arithmatex">\[
+\rho=
+\frac{1}{2}\begin{pmatrix}
+1+\cos\theta &amp; e^{-i\phi}\sin\theta\\
+e^{i\phi}\sin\theta &amp; 1-\cos\theta
+\end{pmatrix}
+=\frac{I+\vec r\cdot\vec\sigma}{2},
+\quad
+\vec r=(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta).
+\]</div>
+<p>This is exactly the pure-state Bloch parametrization from <strong>textbook Section 1.2</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.4.13 : Minimal ensemble containing a support state</p>
+<p>A <strong>minimal ensemble</strong> for a density operator <span class="arithmatex">\(\rho\)</span> is an ensemble with exactly <span class="arithmatex">\({\operatorname{rank}}(\rho)\)</span> elements.
+For any state <span class="arithmatex">\(|\psi\rangle\)</span> in the support of <span class="arithmatex">\(\rho\)</span>, there exists a minimal ensemble containing <span class="arithmatex">\(|\psi\rangle\)</span>.
+In any such minimal ensemble, if <span class="arithmatex">\(|\psi_i\rangle=|\psi\rangle\)</span>, then the corresponding probability is given by</p>
+<div class="arithmatex">\[
+p_i=\frac{1}{\left\langle\psi_i\right|\rho^{-1}\left|\psi_i\right\rangle}.
+\]</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(\rho=\sum_{k=1}^{r}\lambda_k |k\rangle\langle k|\)</span> be the spectral decomposition on <span class="arithmatex">\(\operatorname{supp}(\rho)\)</span>, with all <span class="arithmatex">\(\lambda_k&gt;0\)</span> and <span class="arithmatex">\(r={\operatorname{rank}}(\rho)\)</span>.
+Then <span class="arithmatex">\(\rho^{-1}=\sum_{k=1}^{r}\lambda_k^{-1}|k\rangle\langle k|\)</span> is the inverse of <span class="arithmatex">\(\rho\)</span> on its support.
+Choose</p>
+<div class="arithmatex">\[
+|\phi_1\rangle=\frac{\rho^{-1/2}|\psi\rangle}{\sqrt{\langle\psi|\rho^{-1}|\psi\rangle}}.
+\]</div>
+<p>Extend <span class="arithmatex">\(|\phi_1\rangle\)</span> to an orthonormal basis <span class="arithmatex">\(\{|\phi_i\rangle\}_{i=1}^{r}\)</span> of <span class="arithmatex">\(\operatorname{supp}(\rho)\)</span>.
+For each <span class="arithmatex">\(i\)</span>, define</p>
+<div class="arithmatex">\[
+|\tilde\psi_i\rangle\equiv \rho^{1/2}|\phi_i\rangle,\qquad
+p_i\equiv\langle\tilde\psi_i|\tilde\psi_i\rangle,\qquad
+|\psi_i\rangle\equiv\frac{|\tilde\psi_i\rangle}{\sqrt{p_i}}.
+\]</div>
+<p>Then</p>
+<div class="arithmatex">\[
+\rho=\sum_{i=1}^{r}|\tilde\psi_i\rangle\langle\tilde\psi_i|
+=\sum_{i=1}^{r}p_i|\psi_i\rangle\langle\psi_i|.
+\]</div>
+<p>Since the number of terms is <span class="arithmatex">\(r\)</span>, this ensemble is minimal and contains <span class="arithmatex">\(|\psi\rangle\)</span>.
+Indeed,</p>
+<div class="arithmatex">\[
+|\tilde\psi_1\rangle=\frac{|\psi\rangle}{\sqrt{\langle\psi|\rho^{-1}|\psi\rangle}},
+\quad
+p_1=\frac{1}{\langle\psi|\rho^{-1}|\psi\rangle},
+\quad
+|\psi_1\rangle=|\psi\rangle.
+\]</div>
+<p>For the second claim, write any minimal ensemble in the form <span class="arithmatex">\(|\tilde\psi_i\rangle=\sqrt{p_i}|\psi_i\rangle\)</span>.
+Then <span class="arithmatex">\(\rho=\sum_i |\tilde\psi_i\rangle\langle\tilde\psi_i|\)</span>.
+Because these <span class="arithmatex">\(r\)</span> vectors span the support, the matrix <span class="arithmatex">\(T\)</span> with columns <span class="arithmatex">\(|\tilde\psi_i\rangle\)</span> is invertible and satisfies <span class="arithmatex">\(\rho=TT^\dagger\)</span>.
+Hence <span class="arithmatex">\(\rho^{-1}=(T^{\dagger})^{-1}T^{-1}\)</span>.</p>
+<p>Therefore,</p>
+<div class="arithmatex">\[
+1=\langle e_i|e_i\rangle
+=\langle\tilde\psi_i|\rho^{-1}|\tilde\psi_i\rangle
+=p_i\langle\psi_i|\rho^{-1}|\psi_i\rangle,
+\]</div>
+<p>and rearranging gives</p>
+<div class="arithmatex">\[
+p_i=\frac{1}{\langle\psi_i|\rho^{-1}|\psi_i\rangle}.
+\]</div>
+</div>
+</div>
+<h2 id="243-the-reduced-density-operator">2.4.3. The Reduced Density Operator<a class="headerlink" href="#243-the-reduced-density-operator" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.4.14 : Partial trace</p>
+<p>Suppose we have physical systems <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>.
+The <strong>partial trace over <span class="arithmatex">\(B\)</span></strong> is defined by</p>
+<div class="arithmatex">\[
+\operatorname{tr}_{B}\left(\left|a_{1}\right\rangle\left\langle a_{2}\right| \otimes\left|b_{1}\right\rangle\left\langle b_{2}\right|\right) \equiv\left|a_{1}\right\rangle\left\langle a_{2}\right| \operatorname{tr}\left(\left|b_{1}\right\rangle\left\langle b_{2}\right|\right).
+\]</div>
+<p>Here <span class="arithmatex">\(\left|a_{1}\right\rangle\)</span> and <span class="arithmatex">\(\left|a_{2}\right\rangle\)</span> are any two vectors in the state space of <span class="arithmatex">\(A\)</span>, and <span class="arithmatex">\(\left|b_{1}\right\rangle\)</span> and <span class="arithmatex">\(\left|b_{2}\right\rangle\)</span> are any two vectors in the state space of <span class="arithmatex">\(B\)</span>.
+The trace operation appearing on the right is the usual trace operation on <span class="arithmatex">\(B\)</span>, so <span class="arithmatex">\(\operatorname{tr}\left(\left|b_{1}\right\rangle\left\langle b_{2}\right|\right)=\left\langle b_{2} \mid b_{1}\right\rangle\)</span>.</p>
+<p>We have defined the partial trace on a special subclass of operators on <span class="arithmatex">\(AB\)</span>.
+The definition is completed by requiring in addition that the partial trace be linear in its input.</p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.4.15 : Reduced density operator</p>
+<p>A <strong>reduced density operator</strong> gives a useful description of a subsystem of a composite quantum system.
+Suppose the composite systems <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> are described by a density operator <span class="arithmatex">\(\rho^{AB}\)</span>.
+The reduced density operator for system <span class="arithmatex">\(A\)</span> is defined by</p>
+<div class="arithmatex">\[
+\rho^{A} \equiv \operatorname{tr}_{B}\left(\rho^{AB}\right)
+\]</div>
+<p>Here, <span class="arithmatex">\(\operatorname{tr}_{B}\)</span> is the partial trace map over system <span class="arithmatex">\(B\)</span> defined in <strong>Definition 2.4.14</strong>.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.4.16 : Why the partial trace</p>
+<p>It is not obvious that this map always gives a valid state description for system <span class="arithmatex">\(A\)</span>.
+The physical justification is that it yields the correct measurement statistics for measurements performed on <span class="arithmatex">\(A\)</span>.</p>
+<p>The reason is that the partial trace is the unique map that gives the correct observable statistics for subsystems of a composite system.
+Suppose <span class="arithmatex">\(M\)</span> is an observable on system <span class="arithmatex">\(A\)</span>, and <span class="arithmatex">\(\tilde{M}\)</span> is the observable corresponding to the same physical measurement on the composite system <span class="arithmatex">\(AB\)</span>.
+Let <span class="arithmatex">\(|m\rangle\)</span> be an eigenstate of <span class="arithmatex">\(M\)</span> with eigenvalue <span class="arithmatex">\(m\)</span>, and <span class="arithmatex">\(|\psi\rangle\)</span> be an arbitrary state of <span class="arithmatex">\(B\)</span>.
+For input state <span class="arithmatex">\(|m\rangle|\psi\rangle\)</span>, the measurement result must be <span class="arithmatex">\(m\)</span> with certainty.
+If <span class="arithmatex">\(P_m\)</span> is the projector onto the <span class="arithmatex">\(m\)</span>-eigenspace of <span class="arithmatex">\(M\)</span>, then the projector for the joint measurement is <span class="arithmatex">\(P_m \otimes I_B\)</span>.</p>
+<div class="arithmatex">\[
+\tilde{M}=\sum_m m P_m \otimes I_B=M \otimes I_B
+\]</div>
+<p>The reduced-state condition for any measurement is</p>
+<div class="arithmatex">\[
+\operatorname{tr}\left(M \rho^{A}\right)=\operatorname{tr}\left(\tilde{M} \rho^{AB}\right)=\operatorname{tr}\left((M \otimes I_B) \rho^{AB}\right).
+\]</div>
+<p>Choosing <span class="arithmatex">\(\rho^{A}=\operatorname{tr}_{B}\left(\rho^{AB}\right)\)</span> satisfies this condition.
+To see that this condition characterizes the reduced state uniquely, let <span class="arithmatex">\(f(\cdot)\)</span> map density operators on <span class="arithmatex">\(AB\)</span> to density operators on <span class="arithmatex">\(A\)</span>.
+Then for all observables <span class="arithmatex">\(M\)</span>,</p>
+<div class="arithmatex">\[
+\operatorname{tr}\left(M f\left(\rho^{AB}\right)\right)=\operatorname{tr}\left((M \otimes I_B)\rho^{AB}\right).
+\]</div>
+<p>Let <span class="arithmatex">\(M_i\)</span> be an orthonormal basis of Hermitian operators under the Hilbert-Schmidt inner product <span class="arithmatex">\((X,Y)\equiv \operatorname{tr}(XY)\)</span>.
+Expanding <span class="arithmatex">\(f(\rho^{AB})\)</span> in this basis gives</p>
+<div class="arithmatex">\[
+f\left(\rho^{AB}\right)=\sum_i M_i \operatorname{tr}\left(M_i f\left(\rho^{AB}\right)\right)
+=\sum_i M_i \operatorname{tr}\left((M_i \otimes I_B)\rho^{AB}\right).
+\]</div>
+<p>Therefore <span class="arithmatex">\(f\)</span> is uniquely determined by this condition.
+The partial trace satisfies this condition, so it is the unique operation with this property.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.4.17 : Reduced density operator for non-entangled composite system</p>
+<p>Suppose a quantum system is in the product state <span class="arithmatex">\(\rho^{A B}=\rho \otimes \sigma\)</span>, where <span class="arithmatex">\(\rho\)</span> is a density operator for system <span class="arithmatex">\(A\)</span>, and <span class="arithmatex">\(\sigma\)</span> is a density operator for system <span class="arithmatex">\(B\)</span>.
+Then</p>
+<div class="arithmatex">\[
+\rho^{A}=\operatorname{tr}_{B}(\rho \otimes \sigma)=\rho \operatorname{tr}(\sigma)=\rho
+\]</div>
+<p>which is the result expected from intuition.
+Similarly, <span class="arithmatex">\(\rho^{B}=\sigma\)</span> for this state.</p>
+<hr />
+<p>A less trivial example is the Bell state <span class="arithmatex">\((|00\rangle+|11\rangle) / \sqrt{2}\)</span>.
+Its density operator is</p>
+<div class="arithmatex">\[
+\rho =\left(\frac{|00\rangle+|11\rangle}{\sqrt{2}}\right)\left(\frac{\langle 00|+\langle 11|}{\sqrt{2}}\right)
+=\frac{|00\rangle\langle 00|+|11\rangle\langle 00|+|00\rangle\langle 11|+|11\rangle\langle 11|}{2}.
+\]</div>
+<p>Tracing out the second qubit, we find</p>
+<div class="arithmatex">\[
+\rho^{1} =\operatorname{tr}_{2}(\rho)
+=\frac{\operatorname{tr}_{2}(|00\rangle\langle 00|)+\operatorname{tr}_{2}(|11\rangle\langle 00|)+\operatorname{tr}_{2}(|00\rangle\langle 11|)+\operatorname{tr}_{2}(|11\rangle\langle 11|)}{2}
+\]</div>
+<div class="arithmatex">\[
+\rho^{1}
+=\frac{|0\rangle\langle 0|\langle 0 \mid 0\rangle+|1\rangle\langle 0|\langle 0 \mid 1\rangle+|0\rangle\langle 1|\langle 1 \mid 0\rangle+|1\rangle\langle 1|\langle 1 \mid 1\rangle}{2}
+=\frac{|0\rangle\langle 0|+|1\rangle\langle 1|}{2}
+=\frac{I}{2}
+\]</div>
+<p>Notice that this state is mixed, since <span class="arithmatex">\(\operatorname{tr}\left((I / 2)^{2}\right)=1 / 2&lt;1\)</span>.
+The state of the joint system of two qubits is a pure state, that is, it is known exactly.
+However, the first qubit is in a mixed state, that is, a state about which we apparently do not have maximal knowledge.
+This remarkable property is another hallmark of quantum entanglement.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.4.18 : Reduced density operator for non-entangled composite of pure state</p>
+<p>For the product state <span class="arithmatex">\(|a\rangle|b\rangle\)</span>, the joint density operator is</p>
+<div class="arithmatex">\[
+\rho_{AB}=|a\rangle\langle a|\otimes|b\rangle\langle b|.
+\]</div>
+<p>The reduced density operator on system <span class="arithmatex">\(A\)</span> is the partial trace over <span class="arithmatex">\(B\)</span>.</p>
+<div class="arithmatex">\[
+\rho_{A}=\operatorname{tr}_{B}(\rho_{AB})
+=\operatorname{tr}_{B}(|a\rangle\langle a|\otimes|b\rangle\langle b|).
+\]</div>
+<p>Because the trace over <span class="arithmatex">\(B\)</span> of a rank-one projector is one,</p>
+<div class="arithmatex">\[
+\operatorname{tr}_{B}(|b\rangle\langle b|)=\langle b|b\rangle=1.
+\]</div>
+<p>we get</p>
+<div class="arithmatex">\[
+\rho_{A}=|a\rangle\langle a|.
+\]</div>
+<p>So the reduced state of <span class="arithmatex">\(A\)</span> is pure.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.4.19 : Quantum teleportation and the reduced density operator</p>
+<p>A useful application of the reduced density operator is to the analysis of quantum teleportation.
+Recall from <strong>textbook Section 1.3.7</strong> that quantum teleportation is a procedure for sending quantum information from Alice to Bob, given that Alice and Bob share an EPR pair, and have a classical communications channel.</p>
+<p>At first sight it appears as though teleportation can be used to do faster than light communication, a big no-no according to the theory of relativity.
+We surmised in <strong>textbook Section 1.3.7</strong> that what prevents faster than light communication is the need for Alice to communicate her measurement result to Bob.
+The reduced density operator allows us to make this rigorous.</p>
+<p>Recall that immediately before Alice makes her measurement the quantum state of the three qubits is:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\left|\psi_{2}\right\rangle=\frac{1}{2} &amp; {[|00\rangle(\alpha|0\rangle+\beta|1\rangle)+|01\rangle(\alpha|1\rangle+\beta|0\rangle)} \\
+&amp; +|10\rangle(\alpha|0\rangle-\beta|1\rangle)+|11\rangle(\alpha|1\rangle-\beta|0\rangle)] .
+\end{align*}
+\]</div>
+<p>Measuring in Alice's computational basis, the state of the system after the measurement is:</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp; |00\rangle[\alpha|0\rangle+\beta|1\rangle] \text { with probability } \frac{1}{4} \\
+&amp; |01\rangle[\alpha|1\rangle+\beta|0\rangle] \text { with probability } \frac{1}{4} \\
+&amp; |10\rangle[\alpha|0\rangle-\beta|1\rangle] \text { with probability } \frac{1}{4} \\
+&amp; |11\rangle[\alpha|1\rangle-\beta|0\rangle] \text { with probability } \frac{1}{4}
+\end{align*}
+\]</div>
+<p>The density operator of the system is thus</p>
+<div class="arithmatex">\[
+\begin{align*}
+\rho= &amp; \frac{1}{4}[|00\rangle\langle 00|(\alpha|0\rangle+\beta|1\rangle)(\alpha^{*}\langle 0|+\beta^{*}\langle 1|)+|01\rangle\langle 01|(\alpha|1\rangle+\beta|0\rangle)(\alpha^{*}\langle 1|+\beta^{*}\langle 0|)] \\
+&amp; +|10\rangle\langle 10|(\alpha|0\rangle-\beta|1\rangle)(\alpha^{*}\langle 0|-\beta^{*}\langle 1|)+|11\rangle\langle 11|(\alpha|1\rangle-\beta|0\rangle)(\alpha^{*}\langle 1|-\beta^{*}\langle 0|)]
+\end{align*}
+\]</div>
+<p>Tracing out Alice's system, we see that the reduced density operator of Bob's system is</p>
+<div class="arithmatex">\[
+\begin{align*}
+\rho^{B}= &amp; \frac{1}{4}[(\alpha|0\rangle+\beta|1\rangle)(\alpha^{*}\langle 0|+\beta^{*}\langle 1|)+(\alpha|1\rangle+\beta|0\rangle)(\alpha^{*}\langle 1|+\beta^{*}\langle 0|)] \\
+&amp; +[(\alpha|0\rangle-\beta|1\rangle)(\alpha^{*}\langle 0|-\beta^{*}\langle 1|)+(\alpha|1\rangle-\beta|0\rangle)(\alpha^{*}\langle 1|-\beta^{*}\langle 0|)] \\
+= &amp; \frac{2(|\alpha|^{2}+|\beta|^{2})|0\rangle\langle 0|+2(|\alpha|^{2}+|\beta|^{2})|1\rangle\langle 1|}{4} \\
+= &amp; \frac{|0\rangle\langle 0|+|1\rangle\langle 1|}{2} \\
+= &amp; \frac{I}{2}
+\end{align*}
+\]</div>
+<p>Thus, the state of Bob's system after Alice has performed the measurement but before Bob has learned the measurement result is <span class="arithmatex">\(I/2\)</span>.
+This state has no dependence upon the state <span class="arithmatex">\(|\psi\rangle\)</span> being teleported, and thus any measurements performed by Bob will contain no information about <span class="arithmatex">\(|\psi\rangle\)</span>, thus preventing Alice from using teleportation to transmit information to Bob faster than light.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/arnold518" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

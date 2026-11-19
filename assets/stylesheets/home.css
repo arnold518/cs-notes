@@ -1,0 +1,116 @@
+/* Homepage layout and cards; chapter typography is unchanged. */
+.cs-home {
+  --home-accent: #b54118;
+  --home-hover: rgba(181, 65, 24, 0.045);
+  --home-border: #eadfd9;
+  --home-card: #fffaf7;
+  max-width: 37rem;
+  margin: 0 auto;
+  padding: 2.4rem 0 4rem;
+}
+
+[data-md-color-scheme="slate"] .cs-home {
+  --home-accent: #ffb294;
+  --home-hover: rgba(255, 178, 148, 0.055);
+  --home-border: #514039;
+  --home-card: #2c2726;
+}
+
+.md-typeset .cs-home h1 {
+  margin: 0 0 0.65rem;
+  color: var(--md-default-fg-color);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+
+.cs-home h1 .headerlink {
+  display: none;
+}
+
+.md-typeset .cs-home__intro {
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.cs-home__subjects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 2.4rem;
+}
+
+.md-typeset .cs-home__subjects > p {
+  display: flex;
+  margin: 0;
+}
+
+.md-typeset .cs-home__subject {
+  display: grid;
+  flex: 1;
+  align-content: center;
+  gap: 0.25rem;
+  min-width: 0;
+  min-height: 7rem;
+  padding: 1.15rem;
+  border: 1px solid var(--home-border);
+  border-radius: 0.6rem;
+  background-color: var(--home-card);
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.cs-home__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+
+.cs-home__meta {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.md-typeset .cs-home__subject:is(:hover, :focus-visible) {
+  border-color: var(--home-accent);
+  background-color: var(--home-hover);
+  color: var(--home-accent);
+}
+
+.cs-home__subject:focus-visible {
+  outline: 2px solid var(--home-accent);
+  outline-offset: 3px;
+}
+
+.md-container:has(.cs-home) > .md-footer {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .cs-home {
+    padding-top: 1.6rem;
+  }
+
+  .cs-home__subjects {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    margin-top: 1.8rem;
+  }
+
+  .md-typeset .cs-home__subject {
+    min-height: 5.3rem;
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-home__subject {
+    transition: none;
+  }
+}

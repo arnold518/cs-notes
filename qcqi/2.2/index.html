@@ -1,0 +1,3080 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://arnold518.github.io/cs-notes/qcqi/2.2/">
+      
+      
+        <link rel="prev" href="../2.1/">
+      
+      
+        <link rel="next" href="../2.4/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>2.2. The Postulates of Quantum Mechanics - Computer Science Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%206a6%206%200%200%201%206%206c0%202.22-1.21%204.16-3%205.2V19a1%201%200%200%201-1%201h-4a1%201%200%200%201-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6%206%200%200%201%206-6m2%2015v1a1%201%200%200%201-1%201h-2a1%201%200%200%201-1-1v-1zm6-10h3v2h-3zM1%2011h3v2H1zM13%201v3h-2V1zM4.92%203.5l2.13%202.14-1.42%201.41L3.5%204.93zm12.03%202.13%202.12-2.13%201.43%201.43-2.13%202.12z%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200a256%20256%200%201%201%200%20512%20256%20256%200%201%201%200-512m-24%20120v136c0%208%204%2015.5%2010.7%2020l96%2064c11%207.4%2025.9%204.4%2033.3-6.7s4.4-25.9-6.7-33.3L280%20243.2V120c0-13.3-10.7-24-24-24s-24%2010.7-24%2024%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/home.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#22-the-postulates-of-quantum-mechanics" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../.." title="Computer Science Notes" class="md-header__button md-logo" aria-label="Computer Science Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computer Science Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.2. The Postulates of Quantum Mechanics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="공유" aria-label="공유" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnold518/cs-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/cs-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../paper-review/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Paper Review
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mfdnn/format/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mathematical Foundations of Deep Neural Networks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../rl/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reinforcement Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Quantum Computation and Quantum Information
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Computer Science Notes" class="md-nav__button md-logo" aria-label="Computer Science Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computer Science Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnold518/cs-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/cs-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../paper-review/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Paper Review
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Paper Review
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Artificial Intelligence
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Artificial Intelligence
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paper-review/1.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Recurrent Neural Network
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paper-review/1.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.5. Transformer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../mfdnn/format/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Mathematical Foundations of Deep Neural Networks
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Mathematical Foundations of Deep Neural Networks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 1. Optimization and Stochastic Gradient Descent
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 1. Optimization and Stochastic Gradient Descent
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Optimization Problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Gradient Descent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1PSpoeseUPIptYQOPuQpxNawxtZbVR_K6/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 2. Shallow Neural Networks to Multilayer Perceptrons
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 2. Shallow Neural Networks to Multilayer Perceptrons
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Shallow Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Deep Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/15kXC3cJUV63gZNfXK6JdPPuSrwQZBzI8/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 3. Convolutional Neural Networks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 3. Convolutional Neural Networks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Convolutional Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Foundations of Design and Training of Deep Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. ImageNet Challenge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/12O9fLasWDA-kOKBD-lE-1UhCl-PoDf0z/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 4. CNNs for Other Supervised Learning Tasks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 4. CNNs for Other Supervised Learning Tasks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. CNNs for Other Supervised Learning Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/16IOKVF6IiDMyUvL73pGKBaEMKyXvezLB/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 5. Unsupervised Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 5. Unsupervised Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Autoencoder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Flow Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Variational Autoencoders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Generative Adversarial Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1JM5k-e6LkhZ0vXRlfROWpiuw4YC85Jv1/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5 Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch A. Appendix - Basics of Monte Carlo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Ch A. Appendix - Basics of Monte Carlo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mfdnn/format/13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Basics of Monte Carlo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/18b01xoORd0LFQmpfc_4ou5Rv44MY1neg/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter A Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python Basics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Python Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1-iY9XfDhWNRDq3z_wVVvOzU04aRQWAfW/view?usp=drive_link" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1BANbCC6jBjPEUFSRJMFkcLbc4oVmoQHm/view?usp=sharing" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/file/d/1-Bc11RZmno6yx37kfVLjsyY-XKpLK5Je/view?usp=drive_link" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../rl/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Reinforcement Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum Computation and Quantum Information
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum Computation and Quantum Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 2. Introduction to Quantum Mechanics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 2. Introduction to Quantum Mechanics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. Linear Algebra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2.2. The Postulates of Quantum Mechanics
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2. The Postulates of Quantum Mechanics
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#221-state-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 State space
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#222-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2. Evolution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#223-quantum-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3. Quantum Measurement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#224-distinguishing-quantum-states-application-of-postulate-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.4. Distinguishing Quantum States (application of postulate 3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#225-projective-measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.5. Projective Measurements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#226-povm-measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.6. POVM Measurements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#227-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.7 Phase
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#228-composite-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.8. Composite Systems
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4. The Density Operator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch 4. Quantum Circuits
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 4. Quantum Circuits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2. Single Qubit Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#221-state-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 State space
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#222-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2. Evolution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#223-quantum-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3. Quantum Measurement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#224-distinguishing-quantum-states-application-of-postulate-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.4. Distinguishing Quantum States (application of postulate 3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#225-projective-measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.5. Projective Measurements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#226-povm-measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.6. POVM Measurements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#227-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.7 Phase
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#228-composite-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.8. Composite Systems
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="22-the-postulates-of-quantum-mechanics">§ 2.2. The Postulates of Quantum Mechanics<a class="headerlink" href="#22-the-postulates-of-quantum-mechanics" title="Permanent link">&para;</a></h1>
+<h2 id="221-state-space">2.2.1 State space<a class="headerlink" href="#221-state-space" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.2.1 : Postulate 1 : State space</p>
+<p>A <strong>state space</strong> of an isolated physical system is a complex vector space with inner product, that is, a Hilbert space.
+The system is completely described by a <strong>state vector</strong>, which is a unit vector in the system's state space.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.2 : Qubit state and normalization</p>
+<p>The simplest quantum mechanical system, and the one we will be most concerned with, is the <strong>qubit</strong>.
+A qubit has a two-dimensional state space.
+Suppose <span class="arithmatex">\(|0\rangle\)</span> and <span class="arithmatex">\(|1\rangle\)</span> form an orthonormal basis.</p>
+<div class="arithmatex">\[
+\begin{equation*}
+|\psi\rangle = a|0\rangle+b|1\rangle
+\end{equation*}
+\]</div>
+<p>where <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> are complex numbers.</p>
+<p>The condition that <span class="arithmatex">\(|\psi\rangle\)</span> be a unit vector is <span class="arithmatex">\(\langle\psi \mid \psi\rangle=1\)</span>.
+This is equivalent to <span class="arithmatex">\(|a|^{2}+|b|^{2}=1\)</span>.
+The condition <span class="arithmatex">\(\langle\psi \mid \psi\rangle=1\)</span> is the <strong>normalization condition</strong> for state vectors.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.3 : Superpositions, amplitude for state</p>
+<p>The way a qubit differs from a bit is that superpositions of the form <span class="arithmatex">\(a|0\rangle+b|1\rangle\)</span> can exist.
+In such a state, it is not possible to say that the qubit is definitely in state <span class="arithmatex">\(|0\rangle\)</span> or definitely in state <span class="arithmatex">\(|1\rangle\)</span>.
+For any linear combination <span class="arithmatex">\(\sum_{i} \alpha_{i}\left|\psi_{i}\right\rangle\)</span>, we call it a <strong>superposition</strong> of the states <span class="arithmatex">\(\left|\psi_{i}\right\rangle\)</span> with <strong>amplitude</strong> <span class="arithmatex">\(\alpha_{i}\)</span> for state <span class="arithmatex">\(\left|\psi_{i}\right\rangle\)</span>.</p>
+<p>In particular,</p>
+<div class="arithmatex">\[
+\frac{|0\rangle-|1\rangle}{\sqrt{2}}
+\]</div>
+<p>this is a superposition of the states <span class="arithmatex">\(|0\rangle\)</span> and <span class="arithmatex">\(|1\rangle\)</span> with amplitude <span class="arithmatex">\(1 / \sqrt{2}\)</span> for state <span class="arithmatex">\(|0\rangle\)</span>, and amplitude <span class="arithmatex">\(-1 / \sqrt{2}\)</span> for state <span class="arithmatex">\(|1\rangle\)</span>.</p>
+</div>
+<h2 id="222-evolution">2.2.2. Evolution<a class="headerlink" href="#222-evolution" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.2.4 : Postulate 2 : Unitary time evolution</p>
+<p>For a closed quantum system, the <strong>evolution</strong> is given by a <strong>unitary transformation</strong>.
+If <span class="arithmatex">\(|\psi\rangle\)</span> is the state at time <span class="arithmatex">\(t_{1}\)</span> and <span class="arithmatex">\(|\psi^{\prime}\rangle\)</span> is the state at time <span class="arithmatex">\(t_{2}\)</span>, then the evolution is related by a unitary operator <span class="arithmatex">\(U\)</span> that depends only on <span class="arithmatex">\(t_{1}\)</span> and <span class="arithmatex">\(t_{2}\)</span> such that</p>
+<div class="arithmatex">\[
+|\psi^{\prime}\rangle = U|\psi\rangle.
+\]</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.5 : Hadamard gate</p>
+<p>The Hadamard gate is a unitary operator denoted by <span class="arithmatex">\(H\)</span>.
+It acts on basis states as</p>
+<div class="arithmatex">\[
+H|0\rangle \equiv \frac{|0\rangle+|1\rangle}{\sqrt{2}}, H|1\rangle \equiv \frac{|0\rangle-|1\rangle}{\sqrt{2}}.
+\]</div>
+<p>Its matrix representation is</p>
+<div class="arithmatex">\[
+H=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right]
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.2.6 : Properties of the Hadamard gate</p>
+<ol>
+<li>
+<p>The Hadamard gate is unitary, i.e.</p>
+<div class="arithmatex">\[
+H^{\dagger} H=I, \quad H H^{\dagger}=I.
+\]</div>
+</li>
+<li>
+<p>The square of the Hadamard gate is the identity,</p>
+<div class="arithmatex">\[
+H^{2}=I.
+\]</div>
+</li>
+<li>
+<p>The eigenvalues of <span class="arithmatex">\(H\)</span> are <span class="arithmatex">\(+1\)</span> and <span class="arithmatex">\(-1\)</span>, with corresponding normalized eigenvectors</p>
+<div class="arithmatex">\[
+|\lambda_{+}\rangle=\cos\frac{\pi}{8}|0\rangle+\sin\frac{\pi}{8}|1\rangle,\quad
+H|\lambda_{+}\rangle=|\lambda_{+}\rangle,
+\]</div>
+<div class="arithmatex">\[
+|\lambda_{-}\rangle=\sin\frac{\pi}{8}|0\rangle-\cos\frac{\pi}{8}|1\rangle,\quad
+H|\lambda_{-}\rangle=-|\lambda_{-}\rangle.
+\]</div>
+</li>
+</ol>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Using the matrix representation</p>
+<div class="arithmatex">\[
+H=\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{pmatrix},
+\]</div>
+<p>we have <span class="arithmatex">\(H^{\dagger}=H\)</span>.
+Therefore</p>
+<div class="arithmatex">\[
+H^{\dagger}H
+=H^{2}
+=\frac{1}{2}
+\begin{pmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{pmatrix}^{2}
+=\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}=I.
+\]</div>
+<p>So <span class="arithmatex">\(H\)</span> is unitary and <span class="arithmatex">\(H^{2}=I\)</span>.
+If <span class="arithmatex">\(H|\psi\rangle=\lambda|\psi\rangle\)</span> for a nonzero vector <span class="arithmatex">\(|\psi\rangle\)</span>, then <span class="arithmatex">\(H^{2}|\psi\rangle=\lambda^{2}|\psi\rangle=|\psi\rangle\)</span>, so <span class="arithmatex">\(\lambda=\pm 1\)</span>.
+Direct substitution gives</p>
+<div class="arithmatex">\[
+H|\lambda_{+}\rangle
+=\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+\cos\frac{\pi}{8}+\sin\frac{\pi}{8} \\
+\cos\frac{\pi}{8}-\sin\frac{\pi}{8}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\frac{\pi}{8} \\
+\sin\frac{\pi}{8}
+\end{pmatrix}
+=|\lambda_{+}\rangle
+\]</div>
+<p>and</p>
+<div class="arithmatex">\[
+H|\lambda_{-}\rangle
+=\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+\sin\frac{\pi}{8}-\cos\frac{\pi}{8} \\
+\sin\frac{\pi}{8}+\cos\frac{\pi}{8}
+\end{pmatrix}
+=
+-\begin{pmatrix}
+\sin\frac{\pi}{8} \\
+-\cos\frac{\pi}{8}
+\end{pmatrix}
+=-|\lambda_{-}\rangle.
+\]</div>
+</div>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.2.7 : Postulate 2' : Schrödinger equation</p>
+<p>The time evolution of the state of a closed quantum system is given by the <strong>Schrödinger equation</strong>.</p>
+<div class="arithmatex">\[
+i\hbar\frac{d|\psi\rangle}{dt}=H|\psi\rangle.
+\]</div>
+<p>In this equation, <span class="arithmatex">\(\hbar\)</span> is a physical constant known as Planck's constant whose value must be experimentally determined.
+The exact value is not important to us.
+In practice, it is common to absorb the factor <span class="arithmatex">\(\hbar\)</span> into <span class="arithmatex">\(H\)</span>, effectively setting <span class="arithmatex">\(\hbar=1\)</span>.
+<span class="arithmatex">\(H\)</span> is a fixed <strong>Hermitian operator</strong> known as the <strong>Hamiltonian</strong> of the closed system.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.8 : Spectral decomposition of the Hamiltonian</p>
+<p>The Hamiltonian is Hermitian, so it has the following spectral decomposition.</p>
+<div class="arithmatex">\[
+H = \sum_{E} E|E\rangle\langle E|.
+\]</div>
+<p>The vectors <span class="arithmatex">\(|E\rangle\)</span> are the <strong>energy eigenstates</strong>, sometimes called <strong>stationary states</strong>, and the corresponding eigenvalue <span class="arithmatex">\(E\)</span> is the <strong>energy</strong> of that state.
+The lowest energy is the <strong>ground state energy</strong>, and its corresponding eigenspace is the <strong>ground state</strong>.</p>
+<p>These states are stationary because their only time dependence is an overall phase factor.</p>
+<div class="arithmatex">\[
+|E\rangle \rightarrow \exp(-iEt/\hbar)|E\rangle.
+\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.2.9 : Hamiltonian example</p>
+<p>As an example, suppose a single qubit has Hamiltonian</p>
+<div class="arithmatex">\[
+H=\hbar \omega X
+\]</div>
+<p>In this equation <span class="arithmatex">\(\omega\)</span> is a parameter that, in practice, needs to be experimentally determined.
+We won't worry about the parameter overly much here - the point is to give you a feel for the sort of Hamiltonians that are sometimes written down in the study of quantum computation and quantum information.</p>
+<p>The energy eigenstates of this Hamiltonian are obviously the same as the eigenstates of <span class="arithmatex">\(X\)</span>, namely <span class="arithmatex">\((|0\rangle+|1\rangle) / \sqrt{2}\)</span> and <span class="arithmatex">\((|0\rangle-|1\rangle) / \sqrt{2}\)</span>, with corresponding energies <span class="arithmatex">\(\hbar \omega\)</span> and <span class="arithmatex">\(-\hbar \omega\)</span>.
+The ground state is therefore <span class="arithmatex">\((|0\rangle-|1\rangle) / \sqrt{2}\)</span>, and the ground state energy is <span class="arithmatex">\(-\hbar \omega\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Lemma 2.2.10</p>
+<p>Suppose <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span> and <span class="arithmatex">\(H\)</span> are Hermitian operators and let</p>
+<div class="arithmatex">\[
+U\left(t_{1}, t_{2}\right) \equiv \exp \left[\frac{-i H\left(t_{2}-t_{1}\right)}{\hbar}\right].
+\]</div>
+<ul>
+<li>(a) If <span class="arithmatex">\([A,B]=0\)</span>, then <span class="arithmatex">\(\exp(A)\exp(B)=\exp(A+B)\)</span>.</li>
+<li>(b) <span class="arithmatex">\(U(t_1,t_2)\)</span> is unitary.</li>
+<li>(c) For any unitary <span class="arithmatex">\(U\)</span>, the operator <span class="arithmatex">\(K\equiv -i\log(U)\)</span> is Hermitian and <span class="arithmatex">\(U=\exp(iK)\)</span>.</li>
+</ul>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<ul>
+<li>
+<p>(a)
+    Expand both exponentials into power series.</p>
+<div class="arithmatex">\[
+\exp(A)\exp(B)=\left(\sum_{m=0}^{\infty} \frac{A^{m}}{m!}\right)\left(\sum_{n=0}^{\infty} \frac{B^{n}}{n!}\right)
+=\sum_{m,n\ge 0} \frac{A^{m}B^{n}}{m!n!}.
+\]</div>
+<p>Since <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> commute, the binomial expansion is</p>
+<div class="arithmatex">\[
+(A+B)^r=\sum_{m=0}^{r}\binom{r}{m}A^mB^{r-m}.
+\]</div>
+<p>Therefore</p>
+<div class="arithmatex">\[
+\exp(A)\exp(B)
+=\sum_{r=0}^{\infty}\sum_{m=0}^{r} \frac{\binom{r}{m} A^{m}B^{r-m}}{r!}
+=\sum_{r=0}^{\infty}\frac{(A+B)^r}{r!}
+=\exp(A+B).
+\]</div>
+</li>
+<li>
+<p>(b)
+    By definition,</p>
+<div class="arithmatex">\[
+U(t_1,t_2)=\exp\left[-\frac{iH(t_2-t_1)}{\hbar}\right].
+\]</div>
+<p>Since <span class="arithmatex">\(H\)</span> is Hermitian,</p>
+<div class="arithmatex">\[
+U(t_1,t_2)^\dagger
+=
+\exp\left[\frac{iH(t_2-t_1)}{\hbar}\right].
+\]</div>
+<p>The two exponents commute because both are scalar multiples of <span class="arithmatex">\(H\)</span>.
+Therefore, by part (a),</p>
+<div class="arithmatex">\[
+U(t_1,t_2)^\dagger U(t_1,t_2)
+=
+\exp\left[\frac{iH(t_2-t_1)}{\hbar}\right]
+\exp\left[-\frac{iH(t_2-t_1)}{\hbar}\right]
+=
+\exp(0)
+=
+I.
+\]</div>
+<p>Similarly,</p>
+<div class="arithmatex">\[
+U(t_1,t_2)U(t_1,t_2)^\dagger=I.
+\]</div>
+<p>Hence <span class="arithmatex">\(U(t_1,t_2)\)</span> is unitary.</p>
+</li>
+<li>
+<p>(c)
+    Since <span class="arithmatex">\(U\)</span> is unitary, it is normal, so it admits a spectral decomposition</p>
+<div class="arithmatex">\[
+U=\sum_a e^{i\theta_a}|a\rangle\langle a|,
+\]</div>
+<p>where each <span class="arithmatex">\(\theta_a\in\mathbb{R}\)</span>.</p>
+<p>Define</p>
+<div class="arithmatex">\[
+K\equiv \sum_a \theta_a |a\rangle\langle a|.
+\]</div>
+<p>Then <span class="arithmatex">\(K\)</span> is Hermitian, since its eigenvalues are real:</p>
+<div class="arithmatex">\[
+K^\dagger
+=
+\sum_a \theta_a |a\rangle\langle a|
+=
+K.
+\]</div>
+<p>Also,</p>
+<div class="arithmatex">\[
+e^{iK}
+=
+\sum_a e^{i\theta_a}|a\rangle\langle a|
+=
+U.
+\]</div>
+<p>Thus every unitary operator can be written in the form <span class="arithmatex">\(U=e^{iK}\)</span> for some Hermitian operator <span class="arithmatex">\(K\)</span>.
+With a chosen branch of the logarithm, one may write <span class="arithmatex">\(K=-i\log(U)\)</span>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.11 : Relation between postulate 2 and postulate 2'</p>
+<p>The connection between the Hamiltonian picture of dynamics, Postulate 2' (<strong>Definition 2.2.7</strong>), and the unitary operator picture, Postulate 2 (<strong>Definition 2.2.4</strong>), is obtained by solving Schrödinger's equation.
+The solution is</p>
+<div class="arithmatex">\[
+\left|\psi\left(t_{2}\right)\right\rangle=\exp \left[\frac{-i H\left(t_{2}-t_{1}\right)}{\hbar}\right]\left|\psi\left(t_{1}\right)\right\rangle=U\left(t_{1}, t_{2}\right)\left|\psi\left(t_{1}\right)\right\rangle
+\]</div>
+<p>where</p>
+<div class="arithmatex">\[
+U\left(t_{1}, t_{2}\right) \equiv \exp \left[\frac{-i H\left(t_{2}-t_{1}\right)}{\hbar}\right]
+\]</div>
+<p>This operator is unitary, and using <strong>Lemma 2.2.10</strong>, any unitary operator <span class="arithmatex">\(U\)</span> can be realized in the form <span class="arithmatex">\(U=\exp(iK)\)</span> for some Hermitian operator <span class="arithmatex">\(K\)</span>.
+There is therefore a one-to-one correspondence between the discrete-time description of dynamics using unitary operators and the continuous-time description using Hamiltonians.
+For most of these notes, we use the unitary formulation of quantum dynamics.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.12 : Approximation of an unclosed system to a time-varying hamiltonian</p>
+<p>When we apply a unitary operator to a quantum system, we are often modeling an interaction with external controls rather than a perfectly closed system.
+For example, a laser interacting with an atom can be included in a larger closed atom-laser Hamiltonian, while the atom alone is described by a reduced effective Hamiltonian.
+This effective Hamiltonian contains laser-controlled parameters such as intensity and phase that experimenters can vary during an experiment.</p>
+<p>As a result, the atomic evolution is approximately unitary with respect to a Hamiltonian that varies in time.
+Thus, in many situations we work with time-varying Hamiltonians as a practical approximation for systems that are not strictly closed.
+The main non-unitary exception considered here is measurement, with more realistic open-system deviations discussed later.</p>
+</div>
+<h2 id="223-quantum-measurement">2.2.3. Quantum Measurement<a class="headerlink" href="#223-quantum-measurement" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.2.13 : Postulate 3 : Quantum measurements</p>
+<p>Postulate 3 states that <strong>quantum measurements</strong> are described by a collection <span class="arithmatex">\(\left\{M_{m}\right\}\)</span> of <strong>measurement operators</strong>.
+These are operators acting on the state space of the system being measured.
+The index <span class="arithmatex">\(m\)</span> refers to the <strong>measurement outcomes</strong> that may occur in the experiment.
+If the state of the quantum system is <span class="arithmatex">\(|\psi\rangle\)</span> immediately before the measurement, then the probability that result <span class="arithmatex">\(m\)</span> occurs is given by</p>
+<div class="arithmatex">\[
+p(m)=\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle,
+\]</div>
+<p>and the state of the system after the measurement is</p>
+<div class="arithmatex">\[
+\frac{M_{m}|\psi\rangle}{\sqrt{\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle}} .
+\]</div>
+<p>The measurement operators satisfy the <strong>completeness equation</strong>,</p>
+<div class="arithmatex">\[
+\sum_{m} M_{m}^{\dagger} M_{m}=I
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.2.14 : Completeness equation</p>
+<p>The completeness equation in <strong>Definition 2.2.13</strong> is the condition that all outcome probabilities for a state add to one.</p>
+<div class="arithmatex">\[
+1=\sum_{m} p(m)=\sum_{m}\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle
+\]</div>
+<p>This equation being satisfied for all <span class="arithmatex">\(|\psi\rangle\)</span> is equivalent to the completeness equation.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Assume <span class="arithmatex">\(\sum_{m} M_{m}^{\dagger} M_{m}=I\)</span>.
+Then, for every normalized state <span class="arithmatex">\(|\psi\rangle\)</span>,</p>
+<div class="arithmatex">\[
+\sum_{m} p(m)=\sum_{m}\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle
+=\langle\psi|I|\psi\rangle
+=\langle\psi|\psi\rangle
+=1.
+\]</div>
+<p>Conversely, assume <span class="arithmatex">\(\sum_{m}\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle=1\)</span> for every normalized <span class="arithmatex">\(|\psi\rangle\)</span>.
+Let <span class="arithmatex">\(A=\sum_{m} M_{m}^{\dagger} M_{m}\)</span>.
+Then <span class="arithmatex">\(\langle\psi|A|\psi\rangle=1\)</span> for every normalized <span class="arithmatex">\(|\psi\rangle\)</span>.
+Hence <span class="arithmatex">\(A=I\)</span> by equality of quadratic forms, so <span class="arithmatex">\(\sum_{m} M_{m}^{\dagger} M_{m}=I\)</span>.</p>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.2.15 : Measurement in the computational basis</p>
+<p>A simple but important example of a measurement is the measurement of a qubit in the computational basis.
+This is a measurement on a single qubit with two outcomes defined by the two measurement operators <span class="arithmatex">\(M_{0}=|0\rangle\langle 0|\)</span> and <span class="arithmatex">\(M_{1}=|1\rangle\langle 1|\)</span>.
+Observe that each measurement operator is Hermitian, and that <span class="arithmatex">\(M_{0}^{2}=M_{0}\)</span> and <span class="arithmatex">\(M_{1}^{2}=M_{1}\)</span>.
+Thus the completeness relation is obeyed, according to <strong>Theorem 2.2.14</strong>, <span class="arithmatex">\(I=M_{0}^{\dagger}M_{0}+M_{1}^{\dagger}M_{1}=M_{0}+M_{1}\)</span>.</p>
+<p>Suppose the state being measured is <span class="arithmatex">\(|\psi\rangle=a|0\rangle+b|1\rangle\)</span>.
+Then the probability of obtaining measurement outcome <span class="arithmatex">\(0\)</span> is</p>
+<div class="arithmatex">\[
+p(0)=\langle\psi|M_{0}^{\dagger}M_{0}|\psi\rangle=\langle\psi|M_{0}|\psi\rangle=|a|^{2}
+\]</div>
+<p>Similarly, the probability of obtaining the measurement outcome <span class="arithmatex">\(1\)</span> is <span class="arithmatex">\(p(1)=|b|^{2}\)</span>.
+The state after measurement in the two cases is therefore</p>
+<div class="arithmatex">\[
+\frac{M_{0}|\psi\rangle}{|a|}=\frac{a}{|a|}|0\rangle
+\]</div>
+<div class="arithmatex">\[
+\frac{M_{1}|\psi\rangle}{|b|}=\frac{b}{|b|}|1\rangle.
+\]</div>
+<p>We will see in <strong>Concept 2.2.31</strong> that multipliers like <span class="arithmatex">\(a /|a|\)</span>, which have modulus one, can effectively be ignored, so the two post-measurement states are effectively <span class="arithmatex">\(|0\rangle\)</span> and <span class="arithmatex">\(|1\rangle\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.2.16 : Cascaded measurements are single measurements</p>
+<p>Let <span class="arithmatex">\(\{L_l\}\)</span> and <span class="arithmatex">\(\{M_m\}\)</span> be two sets of measurement operators.
+A measurement defined by <span class="arithmatex">\(\{L_l\}\)</span> followed by a measurement defined by <span class="arithmatex">\(\{M_m\}\)</span> is physically equivalent to a single measurement with operators <span class="arithmatex">\(\{N_{lm}\}\)</span>.</p>
+<p>If we define</p>
+<div class="arithmatex">\[
+N_{lm} \equiv M_{m} L_{l}
+\]</div>
+<p>the equivalent single-measurement family is given by <span class="arithmatex">\(\{N_{lm}\}\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>For a state <span class="arithmatex">\(|\psi\rangle\)</span>, the two-step process gives outcome pair <span class="arithmatex">\((l,m)\)</span> with probability</p>
+<div class="arithmatex">\[
+p(l,m)=\langle\psi|L_l^\dagger M_m^\dagger M_m L_l|\psi\rangle.
+\]</div>
+<p>The corresponding normalized post-measurement state is</p>
+<div class="arithmatex">\[
+\frac{M_m L_l|\psi\rangle}{\sqrt{p(l,m)}}.
+\]</div>
+<p>Using <span class="arithmatex">\(N_{lm}=M_m L_l\)</span>, the single-measurement family gives</p>
+<div class="arithmatex">\[
+p'(l,m)=\langle\psi|N_{lm}^\dagger N_{lm}|\psi\rangle
+=\langle\psi|L_l^\dagger M_m^\dagger M_m L_l|\psi\rangle
+=p(l,m),
+\]</div>
+<p>and post-measurement state</p>
+<div class="arithmatex">\[
+\frac{N_{lm}|\psi\rangle}{\sqrt{p'(l,m)}}
+=\frac{M_mL_l|\psi\rangle}{\sqrt{p(l,m)}}.
+\]</div>
+<p>If <span class="arithmatex">\(\sum_l L_l^\dagger L_l=I\)</span> and <span class="arithmatex">\(\sum_m M_m^\dagger M_m=I\)</span>, then</p>
+<div class="arithmatex">\[
+\sum_{l,m} N_{lm}^\dagger N_{lm}
+=\sum_l L_l^\dagger\left(\sum_m M_m^\dagger M_m\right)L_l
+=\sum_l L_l^\dagger L_l
+=I.
+\]</div>
+<p>so <span class="arithmatex">\(\{N_{lm}\}\)</span> is a valid measurement.</p>
+</div>
+</div>
+<h2 id="224-distinguishing-quantum-states-application-of-postulate-3">2.2.4. Distinguishing Quantum States (application of postulate 3)<a class="headerlink" href="#224-distinguishing-quantum-states-application-of-postulate-3" title="Permanent link">&para;</a></h2>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.17 : Distinguishing quantum states</p>
+<p>Distinguishing quantum states is introduced by the following game between two parties, Alice and Bob.
+Alice chooses a state <span class="arithmatex">\(\left|\psi_{i}\right\rangle(1 \leq i \leq n)\)</span> from a fixed set of states known to both parties.
+She sends the state <span class="arithmatex">\(\left|\psi_{i}\right\rangle\)</span> to Bob, whose task is to identify the index <span class="arithmatex">\(i\)</span> of the state she gave him.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.2.18 : Orthonormal states are distinguishable</p>
+<p>Suppose the states <span class="arithmatex">\(\left\{\left|\psi_i\right\rangle\right\}\)</span> are orthonormal.</p>
+<p>For each possible index <span class="arithmatex">\(i\neq 0\)</span>, define the measurement operators</p>
+<div class="arithmatex">\[
+M_i \equiv \left|\psi_i\right\rangle\left\langle\psi_i\right|.
+\]</div>
+<p>Define one additional operator</p>
+<div class="arithmatex">\[
+M_0 \equiv \sqrt{I-\sum_{i \neq 0}\left|\psi_i\right\rangle\left\langle\psi_i\right|}.
+\]</div>
+<p>These operators satisfy the completeness relation.
+If the state <span class="arithmatex">\(\left|\psi_i\right\rangle\)</span> is prepared, then</p>
+<div class="arithmatex">\[
+p(i)=\left\langle\psi_i\right|M_i\left|\psi_i\right\rangle=1.
+\]</div>
+<p>Therefore the result <span class="arithmatex">\(i\)</span> occurs with certainty.
+So it is possible to reliably distinguish the orthonormal states <span class="arithmatex">\(\left|\psi_i\right\rangle\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>The proof is expanded by checking completeness first and then computing all relevant outcome probabilities.
+For each index <span class="arithmatex">\(j\)</span>, the operator <span class="arithmatex">\(\left|\psi_j\right\rangle\left\langle\psi_j\right|\)</span> is positive semidefinite.
+Hence the finite sum</p>
+<div class="arithmatex">\[
+S=\sum_{i \neq 0}\left|\psi_i\right\rangle\left\langle\psi_i\right|.
+\]</div>
+<p>is positive semidefinite.
+Orthogonality implies <span class="arithmatex">\(\langle\phi|S|\phi\rangle \le \langle\phi|\phi\rangle\)</span> for all vectors <span class="arithmatex">\(|\phi\rangle\)</span> in the span of the listed states.
+So the operator <span class="arithmatex">\(I-S\)</span> is positive semidefinite.
+Therefore its positive square root is well-defined, so <span class="arithmatex">\(M_0\)</span> is a valid measurement operator.
+Because <span class="arithmatex">\(M_0^2=I-S\)</span>, we have</p>
+<div class="arithmatex">\[
+M_0^\dagger M_0=I-\sum_{i \neq 0}\left|\psi_i\right\rangle\left\langle\psi_i\right|.
+\]</div>
+<p>Each projector <span class="arithmatex">\(M_i\)</span> is Hermitian and satisfies <span class="arithmatex">\(M_i^\dagger=M_i\)</span>.
+Therefore</p>
+<div class="arithmatex">\[
+\sum_{i \neq 0} M_i^\dagger M_i+M_0^\dagger M_0
+=\sum_{i \neq 0}\left|\psi_i\right\rangle\left\langle\psi_i\right|+I-\sum_{i \neq 0}\left|\psi_i\right\rangle\left\langle\psi_i\right|=I.
+\]</div>
+<p>So the set <span class="arithmatex">\(\{M_i\}_{i \neq 0}\cup\{M_0\}\)</span> is complete.</p>
+<p>Now assume the prepared state is <span class="arithmatex">\(\left|\psi_k\right\rangle\)</span> for some index <span class="arithmatex">\(k\)</span>.
+For outcome <span class="arithmatex">\(j\neq 0\)</span>, the probability is</p>
+<div class="arithmatex">\[
+p(j|k)=\left\langle\psi_k\right|M_j\left|\psi_k\right\rangle
+=\left\langle\psi_k\middle|\psi_j\right\rangle\left\langle\psi_j\middle|\psi_k\right\rangle
+=\left|\left\langle\psi_j\middle|\psi_k\right\rangle\right|^2
+=\delta_{jk}.
+\]</div>
+<p>For <span class="arithmatex">\(j=k\)</span>, this is one.
+For <span class="arithmatex">\(j\neq k\)</span>, this is zero.
+For outcome <span class="arithmatex">\(0\)</span>, we compute</p>
+<div class="arithmatex">\[
+p(0|k)=\left\langle\psi_k\right|M_0^\dagger M_0\left|\psi_k\right\rangle
+=\left\langle\psi_k\right|\left(I-\sum_{i \neq 0}\left|\psi_i\right\rangle\left\langle\psi_i\right|\right)\left|\psi_k\right\rangle
+=1-\sum_{i \neq 0}\left|\left\langle\psi_i\middle|\psi_k\right\rangle\right|^2.
+\]</div>
+<p>If <span class="arithmatex">\(k=0\)</span>, then all overlaps vanish and <span class="arithmatex">\(p(0|0)=1\)</span>.
+If <span class="arithmatex">\(k\neq 0\)</span>, the term <span class="arithmatex">\(i=k\)</span> in the sum is exactly one and all other overlaps vanish, giving <span class="arithmatex">\(p(0|k)=0\)</span>.
+Thus each prepared state yields its own unique measurement outcome with unit probability.</p>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.2.19 : Non-orthogonal states cannot be reliably distinguished</p>
+<p>If two candidate states are non-orthogonal, then no quantum measurement can distinguish them perfectly.
+Suppose Bob uses measurement operators <span class="arithmatex">\(M_{j}\)</span> and associates each outcome <span class="arithmatex">\(j\)</span> with a guess <span class="arithmatex">\(i=f(j)\)</span>.
+If <span class="arithmatex">\(f(j)=1\)</span>, then outcome <span class="arithmatex">\(j\)</span> is interpreted as <span class="arithmatex">\(|\psi_{1}\rangle\)</span>.
+Because <span class="arithmatex">\(|\psi_{2}\rangle\)</span> has a component parallel to <span class="arithmatex">\(|\psi_{1}\rangle\)</span>, this outcome can appear when <span class="arithmatex">\(|\psi_{2}\rangle\)</span> is prepared.
+So Bob can make an error.</p>
+<p>Any non-orthogonal pair <span class="arithmatex">\(|\psi_{1}\rangle\)</span> and <span class="arithmatex">\(|\psi_{2}\rangle\)</span> has a decomposition</p>
+<div class="arithmatex">\[
+|\psi_{2}\rangle=\alpha|\psi_{1}\rangle+\beta|\varphi\rangle,
+\]</div>
+<p>where <span class="arithmatex">\(|\varphi\rangle \perp |\psi_{1}\rangle\)</span>, <span class="arithmatex">\(|\alpha|^{2}+|\beta|^{2}=1\)</span>, and <span class="arithmatex">\(|\beta|&lt;1\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Assume, for contradiction, that a measurement can distinguish <span class="arithmatex">\(|\psi_{1}\rangle\)</span> and <span class="arithmatex">\(|\psi_{2}\rangle\)</span> reliably.
+Define</p>
+<div class="arithmatex">\[
+E_{i}\equiv\sum_{j:f(j)=i}M_{j}^{\dagger}M_{j}.
+\]</div>
+<p>Perfect distinguishability gives</p>
+<div class="arithmatex">\[
+\langle\psi_{1}|E_{1}|\psi_{1}\rangle=1 ,
+\quad
+\langle\psi_{2}|E_{2}|\psi_{2}\rangle=1.
+\]</div>
+<p>Because <span class="arithmatex">\(\sum_{i}E_{i}=I\)</span>, we get</p>
+<div class="arithmatex">\[
+\langle\psi_{1}|E_{2}|\psi_{1}\rangle=0,
+\quad
+\sqrt{E_{2}}|\psi_{1}\rangle=0.
+\]</div>
+<p>Substituting <span class="arithmatex">\(|\psi_{2}\rangle=\alpha|\psi_{1}\rangle+\beta|\varphi\rangle\)</span> gives</p>
+<div class="arithmatex">\[
+\sqrt{E_{2}}|\psi_{2}\rangle=\beta\sqrt{E_{2}}|\varphi\rangle.
+\]</div>
+<p>so</p>
+<div class="arithmatex">\[
+\langle\psi_{2}|E_{2}|\psi_{2}\rangle
+=|\beta|^{2}\langle\varphi|E_{2}|\varphi\rangle
+\le|\beta|^{2}&lt;1.
+\]</div>
+<p>The second inequality follows from</p>
+<div class="arithmatex">\[
+\langle\varphi|E_{2}|\varphi\rangle
+\le\sum_{i}\langle\varphi|E_{i}|\varphi\rangle
+=\langle\varphi|\varphi\rangle=1.
+\]</div>
+<p>This contradicts <span class="arithmatex">\(\langle\psi_{2}|E_{2}|\psi_{2}\rangle=1\)</span>.
+Therefore no such perfect measurement exists.</p>
+</div>
+</div>
+<h2 id="225-projective-measurements">2.2.5. Projective Measurements<a class="headerlink" href="#225-projective-measurements" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.2.20 : Projective measurements</p>
+<p>A <strong>projective measurement</strong> is described by an observable <span class="arithmatex">\(M\)</span>, a Hermitian operator on the state space of the system being observed.
+According to <strong>Theorem 2.1.35</strong>, the observable has a spectral decomposition.</p>
+<div class="arithmatex">\[
+M=\sum_{m} m P_{m}
+\]</div>
+<p>where <span class="arithmatex">\(P_{m}\)</span> is the projector onto the eigenspace of <span class="arithmatex">\(M\)</span> with eigenvalue <span class="arithmatex">\(m\)</span>.
+The possible outcomes of the measurement correspond to the eigenvalues <span class="arithmatex">\(m\)</span> of the observable.
+Given a state <span class="arithmatex">\(|\psi\rangle\)</span>, the probability of obtaining outcome <span class="arithmatex">\(m\)</span> is</p>
+<div class="arithmatex">\[
+p(m)=\langle\psi| P_{m}|\psi\rangle.
+\]</div>
+<p>Given that outcome <span class="arithmatex">\(m\)</span> occurred, the state of the quantum system immediately after measurement is</p>
+<div class="arithmatex">\[
+\frac{P_{m}|\psi\rangle}{\sqrt{p(m)}}.
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.2.21 : Average value and standard deviation of an observable</p>
+<p>The <strong>average value</strong> of the observable <span class="arithmatex">\(M\)</span> in state <span class="arithmatex">\(|\psi\rangle\)</span> is given by</p>
+<div class="arithmatex">\[
+\mathbf{E}(M)=\sum_{m} m p(m)
+=\sum_{m} m\langle\psi| P_{m}|\psi\rangle
+=\langle\psi|(\sum_{m} m P_{m})|\psi\rangle
+=\langle\psi|M|\psi\rangle.
+\]</div>
+<p>We write this as <span class="arithmatex">\(\langle M\rangle\equiv\langle\psi|M|\psi\rangle\)</span>.</p>
+<p>The square of the <strong>standard deviation</strong> is</p>
+<div class="arithmatex">\[
+{[\Delta(M)]}^{2} =\left\langle(M-\langle M\rangle)^{2}\right\rangle
+=\left\langle M^{2}\right\rangle-\langle M\rangle^{2}.
+\]</div>
+<p>Hence repeated measurements of <span class="arithmatex">\(M\)</span> on state <span class="arithmatex">\(|\psi\rangle\)</span> have spread</p>
+<div class="arithmatex">\[
+\Delta(M)=\sqrt{\left\langle M^{2}\right\rangle-\langle M\rangle^{2}}.
+\]</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.22 : Two projective-measurement nomenclatures</p>
+<p>Two widely used nomenclatures for projective measurements deserve emphasis.</p>
+<p>Rather than giving an observable to describe a projective measurement, often people simply list a complete set of orthogonal projectors <span class="arithmatex">\(P_{m}\)</span> satisfying the relations</p>
+<div class="arithmatex">\[
+\sum_{m} P_{m}=I, \quad P_{m}P_{m^{\prime}}=\delta_{m m^{\prime}}P_{m},
+\]</div>
+<p>according to <strong>Definition 2.2.20</strong>.
+The corresponding observable implicit in this usage is <span class="arithmatex">\(M=\sum_{m} m P_{m}\)</span>.</p>
+<p>Another widely used phrase, to "measure in a basis <span class="arithmatex">\(|m\rangle\)</span>", where <span class="arithmatex">\(|m\rangle\)</span> form an orthonormal basis, simply means to perform the projective measurement with projectors <span class="arithmatex">\(P_{m}=|m\rangle\langle m|\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.2.23 : Measurement of <span class="arithmatex">\(Z\)</span></p>
+<p>Let's look at an example of projective measurements on single qubits, the measurement of the observable <span class="arithmatex">\(Z\)</span>.
+This has eigenvalues <span class="arithmatex">\(+1\)</span> and <span class="arithmatex">\(-1\)</span> with corresponding eigenvectors <span class="arithmatex">\(|0\rangle\)</span> and <span class="arithmatex">\(|1\rangle\)</span>.
+Thus, for example, measurement of <span class="arithmatex">\(Z\)</span> on the state <span class="arithmatex">\(|\psi\rangle=(|0\rangle+|1\rangle)/\sqrt{2}\)</span> gives the result <span class="arithmatex">\(+1\)</span> with probability <span class="arithmatex">\(\langle\psi \mid 0\rangle\langle 0 \mid \psi\rangle=1 / 2\)</span>.
+Similarly the result <span class="arithmatex">\(-1\)</span> occurs with probability <span class="arithmatex">\(1 / 2\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.2.24 : Measurement of spin along the v axis</p>
+<p>Let <span class="arithmatex">\(\vec v=(v_{1},v_{2},v_{3})\)</span> be any real three-dimensional unit vector.
+Define the observable</p>
+<div class="arithmatex">\[
+\vec v \cdot\vec{\sigma}=v_{1}\sigma_{1}+v_{2}\sigma_{2}+v_{3}\sigma_{3}
+\]</div>
+<p>This is called a measurement of spin along the <span class="arithmatex">\(\vec v\)</span> axis.</p>
+<p>Because <span class="arithmatex">\(\vec v\)</span> is a unit vector, <span class="arithmatex">\((\vec v\cdot\vec{\sigma})^{2}=I\)</span>.
+Therefore, the eigenvalues of <span class="arithmatex">\(\vec v\cdot\vec{\sigma}\)</span> are <span class="arithmatex">\(\pm1\)</span>.
+The projectors onto these eigenspaces are</p>
+<div class="arithmatex">\[
+P_{\pm}=\frac{I\pm\vec v\cdot\vec{\sigma}}{2}
+\]</div>
+<p>For a measurement of <span class="arithmatex">\(\vec v\cdot\vec{\sigma}\)</span> on state <span class="arithmatex">\(|0\rangle\)</span>, the probability of outcome <span class="arithmatex">\(+1\)</span> is</p>
+<div class="arithmatex">\[
+p(+1)=\langle0|P_{+}|0\rangle=
+\frac{1+v_{3}}{2}.
+\]</div>
+<p>Conditional on obtaining <span class="arithmatex">\(+1\)</span>, the post-measurement state is</p>
+<div class="arithmatex">\[
+\frac{P_{+}|0\rangle}{\sqrt{p(+1)}}
+=\frac{(I+\vec v\cdot\vec{\sigma})|0\rangle}{\sqrt{2(1+v_{3})}}
+=\frac{(1+v_{3})|0\rangle+(v_{1}+i v_{2})|1\rangle}{\sqrt{2(1+v_{3})}}.
+\]</div>
+</div>
+<h2 id="226-povm-measurements">2.2.6. POVM Measurements<a class="headerlink" href="#226-povm-measurements" title="Permanent link">&para;</a></h2>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.25 : POVM elements, POVM</p>
+<p>In some applications only the outcome probabilities are relevant, since the post-measurement state is not needed.
+This is especially useful for a single measurement performed at the end of an experiment.</p>
+<p>Suppose the measurement has operators <span class="arithmatex">\(M_{m}\)</span> and the system is in state <span class="arithmatex">\(|\psi\rangle\)</span>.
+The outcome probability is</p>
+<div class="arithmatex">\[
+p(m)=\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle.
+\]</div>
+<p>Define</p>
+<div class="arithmatex">\[
+E_{m}\equiv M_{m}^{\dagger} M_{m}
+\]</div>
+<p>Then <span class="arithmatex">\(E_{m}\)</span> is a positive operator.
+By Postulate 3 (<strong>Definition 2.2.13</strong>), <span class="arithmatex">\(\sum_{m}E_{m}=I\)</span>, which is the completeness condition of <strong>Theorem 2.2.14</strong>.</p>
+<p>The outcome probabilities can therefore be written as</p>
+<div class="arithmatex">\[
+p(m)=\langle\psi| E_{m}|\psi\rangle.
+\]</div>
+<p>The set of operators <span class="arithmatex">\(\{E_{m}\}\)</span> is sufficient to determine the probabilities of all outcomes.
+The operators <span class="arithmatex">\(E_{m}\)</span> are the <strong>POVM elements</strong> associated with the measurement, and the set <span class="arithmatex">\(\{E_{m}\}\)</span> is called a <strong>POVM</strong>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.2.26 : POVM elements of the projective measurement</p>
+<p>For an example of a POVM, consider a projective measurement described by measurement operators <span class="arithmatex">\(P_m\)</span>.
+The projectors satisfy <span class="arithmatex">\(P_m P_{m'}=\delta_{m m'} P_m\)</span> and <span class="arithmatex">\(\sum_m P_m=I\)</span>.
+In this instance, all POVM elements equal the measurement operators, since <span class="arithmatex">\(E_m \equiv P_m^\dagger P_m = P_m\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.2.27 : POVM elements and measurement operators coincide iff projective measurement</p>
+<p>A measurement is projective if and only if, for each outcome <span class="arithmatex">\(m\)</span>, the POVM element equals the measurement operator.
+In this instance all POVM elements are the same as the measurement operators themselves, since</p>
+<div class="arithmatex">\[
+E_m\equiv P_m^{\dagger}P_m=P_m.
+\]</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<ul>
+<li>
+<p>(<span class="arithmatex">\(\Rightarrow\)</span>)<br />
+    If the measurement is projective, the measurement operators are orthogonal projectors <span class="arithmatex">\(P_m\)</span>, so <span class="arithmatex">\(P_m=P_m^{\dagger}=P_m^2\)</span>.
+    Therefore</p>
+<div class="arithmatex">\[
+E_m\equiv P_m^{\dagger}P_m=P_m^2=P_m.
+\]</div>
+<p>Hence each POVM element is the same as its measurement operator.</p>
+</li>
+<li>
+<p>(<span class="arithmatex">\(\Leftarrow\)</span>)<br />
+    If <span class="arithmatex">\(E_m=M_m\)</span> for each <span class="arithmatex">\(m\)</span>, then by the POVM definition</p>
+<div class="arithmatex">\[
+E_m=M_m^{\dagger}M_m=M_m,
+\]</div>
+<p>so <span class="arithmatex">\(M_m\)</span> is Hermitian and idempotent, namely <span class="arithmatex">\(M_m^{\dagger}=M_m\)</span> and <span class="arithmatex">\(M_m^2=M_m\)</span>.
+A Hermitian idempotent operator is an orthogonal projector, so each measurement operator is a projector.
+Hence the measurement is projective.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.28 : POVMs as positive complete operator sets</p>
+<p>The POVM element associated with outcome <span class="arithmatex">\(m\)</span> is a positive operator <span class="arithmatex">\(E_m\)</span>.
+For any state <span class="arithmatex">\(|\psi\rangle\)</span>, outcome <span class="arithmatex">\(m\)</span> occurs with probability <span class="arithmatex">\(p(m)=\langle\psi|E_m|\psi\rangle\)</span>.
+Suppose <span class="arithmatex">\(\{E_m\}\)</span> is an arbitrary set of positive operators with</p>
+<div class="arithmatex">\[
+\sum_m E_m=I.
+\]</div>
+<p>Defining</p>
+<div class="arithmatex">\[
+M_m\equiv\sqrt{E_m}
+\]</div>
+<p>gives</p>
+<div class="arithmatex">\[
+\sum_m M_m^{\dagger}M_m=\sum_m E_m=I.
+\]</div>
+<p>Therefore <span class="arithmatex">\(\{M_m\}\)</span> describes a measurement with POVM <span class="arithmatex">\(\{E_m\}\)</span>.
+A set <span class="arithmatex">\(\{E_m\}\)</span> is therefore called a <strong>POVM</strong> when</p>
+<ul>
+<li>(a) each operator <span class="arithmatex">\(E_m\)</span> is positive.</li>
+<li>(b) the completeness relation <span class="arithmatex">\(\sum_m E_m=I\)</span> holds, expressing that probabilities sum to one.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2.2.29 : Qubit distinguishing with certainty using a POVM</p>
+<p>Suppose Alice gives Bob a qubit prepared in one of two states, <span class="arithmatex">\(\left|\psi_{1}\right\rangle=|0\rangle\)</span> or <span class="arithmatex">\(\left|\psi_{2}\right\rangle=(|0\rangle+|1\rangle) / \sqrt{2}\)</span>.
+As explained in <strong>Th</strong>, it is impossible for Bob to determine whether he has been given <span class="arithmatex">\(\left|\psi_{1}\right\rangle\)</span> or <span class="arithmatex">\(\left|\psi_{2}\right\rangle\)</span> with perfect reliability.
+However, it is possible for him to perform a measurement that distinguishes the states some of the time and never misidentifies either state.
+Consider a POVM containing three elements</p>
+<div class="arithmatex">\[
+E_{1} \equiv \frac{\sqrt{2}}{1+\sqrt{2}}|1\rangle\langle 1|
+\]</div>
+<div class="arithmatex">\[
+E_{2} \equiv \frac{\sqrt{2}}{1+\sqrt{2}} \frac{(|0\rangle-|1\rangle)(\langle 0|-\langle 1|)}{2}
+\]</div>
+<div class="arithmatex">\[
+E_{3} \equiv I-E_{1}-E_{2}
+\]</div>
+<p>It is straightforward to verify that these are positive operators and that they satisfy the completeness relation <span class="arithmatex">\(\sum_{m} E_{m}=I\)</span>, so they form a legitimate POVM.</p>
+<p>Suppose Bob is given the state <span class="arithmatex">\(\left|\psi_{1}\right\rangle=|0\rangle\)</span> and performs the POVM <span class="arithmatex">\(\left\{E_{1}, E_{2}, E_{3}\right\}\)</span>.
+There is zero probability that he observes outcome <span class="arithmatex">\(E_{1}\)</span>, because <span class="arithmatex">\(E_{1}\)</span> has been chosen so that <span class="arithmatex">\(\left\langle\psi_{1}\right| E_{1}\left|\psi_{1}\right\rangle=0\)</span>.
+Therefore, if his outcome is <span class="arithmatex">\(E_{1}\)</span>, he can safely conclude the state was <span class="arithmatex">\(\left|\psi_{2}\right\rangle\)</span>.
+A similar argument shows that an outcome <span class="arithmatex">\(E_{2}\)</span> means the state must have been <span class="arithmatex">\(\left|\psi_{1}\right\rangle\)</span>.
+Sometimes Bob obtains outcome <span class="arithmatex">\(E_{3}\)</span> and in that case he can infer nothing about which state was sent.
+The key point is that Bob never makes a mistake identifying the state.
+This infallibility comes at the cost that Bob sometimes gains no information.
+The example shows how POVMs offer intuitive structure for quantum measurements when only outcome statistics matter.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.2.30 : Unitary implementation of measurement operators</p>
+<p>Suppose a measurement is described by measurement operators <span class="arithmatex">\(\{M_m\}\)</span>, and let <span class="arithmatex">\(E_m\equiv M_m^{\dagger} M_m\)</span>.
+Then there exist unitary operators <span class="arithmatex">\(U_m\)</span> such that <span class="arithmatex">\(M_m=U_m\sqrt{E_m}\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Apply the Polar Decomposition (<strong>Theorem 2.1.72</strong>) to the operator <span class="arithmatex">\(A=M_m\)</span>.</p>
+<p>By polar decomposition, there exists a unitary operator <span class="arithmatex">\(U_m\)</span> and a positive operator <span class="arithmatex">\(J_m\)</span> such that</p>
+<div class="arithmatex">\[
+M_m = U_m J_m,
+\]</div>
+<p>where</p>
+<div class="arithmatex">\[
+J_m = \sqrt{M_m^\dagger M_m}.
+\]</div>
+<p>But by definition,</p>
+<div class="arithmatex">\[
+E_m \equiv M_m^\dagger M_m.
+\]</div>
+<p>Therefore</p>
+<div class="arithmatex">\[
+J_m = \sqrt{E_m}.
+\]</div>
+<p>Substituting this into the polar decomposition gives</p>
+<div class="arithmatex">\[
+M_m = U_m \sqrt{E_m}.
+\]</div>
+<p>Hence for each measurement operator <span class="arithmatex">\(M_m\)</span>, there exists a unitary operator <span class="arithmatex">\(U_m\)</span> such that</p>
+<div class="arithmatex">\[
+M_m = U_m \sqrt{E_m}.
+\]</div>
+<p>This proves the claim.</p>
+</div>
+</div>
+<p>In many instances later in the book we will only be concerned with measurement statistics, and will therefore use the POVM formalism rather than the more general formalism for measurements described by <strong>Definition 2.2.13</strong>.</p>
+<h2 id="227-phase">2.2.7 Phase<a class="headerlink" href="#227-phase" title="Permanent link">&para;</a></h2>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.31 : Global phase factor</p>
+<p>We say the states <span class="arithmatex">\(e^{i \theta}|\psi\rangle\)</span> and <span class="arithmatex">\(|\psi\rangle\)</span> are the same up to the <strong>global phase factor</strong> <span class="arithmatex">\(e^{i \theta}\)</span>.</p>
+<p>For a measurement operator <span class="arithmatex">\(M_{m}\)</span>, the probability of outcome <span class="arithmatex">\(m\)</span> from <span class="arithmatex">\(|\psi\rangle\)</span> is <span class="arithmatex">\(\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle\)</span>.
+For <span class="arithmatex">\(e^{i \theta}|\psi\rangle\)</span>, the corresponding probability is <span class="arithmatex">\(\langle\psi| e^{-i\theta} M_{m}^{\dagger} M_{m} e^{i\theta}|\psi\rangle\)</span>.
+Since <span class="arithmatex">\(e^{-i\theta}\)</span> and <span class="arithmatex">\(e^{i\theta}\)</span> are scalar phases, this equals <span class="arithmatex">\(\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle\)</span>.
+Therefore these two states give identical measurement statistics, so global phase factors are physically irrelevant and can be ignored.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.32 : Relative phase is basis-dependent</p>
+<p>The two states</p>
+<div class="arithmatex">\[
+\frac{|0\rangle+|1\rangle}{\sqrt{2}} \quad \text{and} \quad \frac{|0\rangle-|1\rangle}{\sqrt{2}}
+\]</div>
+<p>differ by a relative sign in the <span class="arithmatex">\(|1\rangle\)</span> amplitude.
+In both states, the magnitudes of the amplitudes are equal.
+More generally, two amplitudes <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> <strong>differ by a relative phase</strong> if there is a real <span class="arithmatex">\(\theta\)</span> such that <span class="arithmatex">\(a=e^{i\theta}b\)</span>.
+Two states differ by a relative phase in a basis when each pair of corresponding amplitudes in that basis differs by such a phase factor.
+In the example above, the <span class="arithmatex">\(|0\rangle\)</span> amplitudes match with factor <span class="arithmatex">\(1\)</span>, while the <span class="arithmatex">\(|1\rangle\)</span> amplitudes differ by a factor of <span class="arithmatex">\(-1\)</span>.</p>
+<p>This is different from global phase, because relative phases can vary from amplitude to amplitude and therefore depend on the chosen basis.
+States related only by relative phases in some basis can therefore lead to different measurement statistics.
+They are not physically equivalent in the way global-phase-related states are.</p>
+</div>
+<h2 id="228-composite-systems">2.2.8. Composite Systems<a class="headerlink" href="#228-composite-systems" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.2.33 : Composite system state space</p>
+<p>The <strong>state space</strong> of a composite physical system is the <strong>tensor product</strong> of the state spaces of the component physical systems.
+If systems are numbered <span class="arithmatex">\(1\)</span> through <span class="arithmatex">\(n\)</span>, and system number <span class="arithmatex">\(i\)</span> is prepared in the state <span class="arithmatex">\(|\psi_{i}\rangle\)</span>, then the joint state of the total system is</p>
+<div class="arithmatex">\[
+|\psi_{1}\rangle \otimes|\psi_{2}\rangle \otimes\cdots\otimes|\psi_{n}\rangle.
+\]</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.34 : Subscript notation for local operators</p>
+<p>At this point it suffices to mention a useful subscript notation to denote states and operators on different systems, when it is not clear from context.
+For example, in a system containing three qubits, <span class="arithmatex">\(X_{2}\)</span> is the Pauli <span class="arithmatex">\(\sigma_{x}\)</span> operator acting on the second qubit.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Lemma 2.2.35 : Extension of an inner-product-preserving map</p>
+<p>Suppose <span class="arithmatex">\(V\)</span> is a Hilbert space with subspace <span class="arithmatex">\(W\)</span>.
+Suppose <span class="arithmatex">\(U:W\rightarrow V\)</span> is linear and satisfies, for all <span class="arithmatex">\(|w_{1}\rangle\)</span> and <span class="arithmatex">\(|w_{2}\rangle\)</span> in <span class="arithmatex">\(W\)</span>,</p>
+<div class="arithmatex">\[
+\langle w_{1}| U^{\dagger} U|w_{2}\rangle=\langle w_{1}| w_{2}\rangle
+\]</div>
+<p>Then there exists a unitary operator <span class="arithmatex">\(U^{\prime}:V\rightarrow V\)</span> such that <span class="arithmatex">\(U^{\prime}|w\rangle=U|w\rangle\)</span> for all <span class="arithmatex">\(|w\rangle\in W\)</span>.
+Usually we omit the prime symbol and write <span class="arithmatex">\(U\)</span> for the extension.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Choose an orthonormal basis <span class="arithmatex">\(\{|w_{i}\rangle\}_{i\in I}\)</span> for <span class="arithmatex">\(W\)</span>.
+Let <span class="arithmatex">\(|u_{i}\rangle\equiv U|w_{i}\rangle\)</span> for <span class="arithmatex">\(i\in I\)</span>.
+The hypothesis gives <span class="arithmatex">\(\langle u_{i}|u_{j}\rangle=\langle w_{i}|w_{j}\rangle\)</span> for all <span class="arithmatex">\(i,j\in I\)</span>.
+Hence <span class="arithmatex">\(\{|u_{i}\rangle\}_{i\in I}\)</span> is orthonormal.
+Extend this set to an orthonormal basis <span class="arithmatex">\(\{|u_{i}\rangle\}_{i\in I}\cup\{|u_{j}^{\perp}\rangle\}_{j\in J}\)</span> of <span class="arithmatex">\(V\)</span>.
+Extend <span class="arithmatex">\(\{|w_{i}\rangle\}_{i\in I}\)</span> to an orthonormal basis <span class="arithmatex">\(\{|w_{i}\rangle\}_{i\in I}\cup\{|w_{j}^{\perp}\rangle\}_{j\in J}\)</span> of <span class="arithmatex">\(V\)</span>.
+Define <span class="arithmatex">\(U^{\prime}\)</span> on basis vectors by <span class="arithmatex">\(U^{\prime}|w_{i}\rangle=|u_{i}\rangle\)</span> and <span class="arithmatex">\(U^{\prime}|w_{j}^{\perp}\rangle=|u_{j}^{\perp}\rangle\)</span>.
+Since <span class="arithmatex">\(U^{\prime}\)</span> maps one orthonormal basis of <span class="arithmatex">\(V\)</span> to another, it is unitary.
+For any <span class="arithmatex">\(|w\rangle\in W\)</span>, this gives <span class="arithmatex">\(U^{\prime}|w\rangle=U|w\rangle\)</span> by construction.
+So <span class="arithmatex">\(U^{\prime}\)</span> is the required unitary extension.</p>
+</div>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 2.2.36 : Implementing general measurements from projective measurements with unitary dynamics</p>
+<p>In <strong>Theorem 2.2.30</strong> we claimed that projective measurements together with unitary dynamics are sufficient to implement a general measurement.
+Suppose we have a quantum system with state space <span class="arithmatex">\(Q\)</span>, and we want to perform a measurement described by measurement operators <span class="arithmatex">\(M_{m}\)</span> on the system <span class="arithmatex">\(Q\)</span>.</p>
+<p>To model this, introduce an ancilla system with state space <span class="arithmatex">\(M\)</span>, and choose an orthonormal basis <span class="arithmatex">\(\{|m\rangle\}\)</span> in one-to-one correspondence with measurement outcomes.
+Let <span class="arithmatex">\(|0\rangle\)</span> be a fixed state of <span class="arithmatex">\(M\)</span>, and define <span class="arithmatex">\(U\)</span> on product states by</p>
+<div class="arithmatex">\[
+U|\psi\rangle|0\rangle \equiv \sum_{m} M_{m}|\psi\rangle|m\rangle.
+\]</div>
+<p>Using the orthonormality of <span class="arithmatex">\(\{|m\rangle\}\)</span> and the completeness relation <span class="arithmatex">\(\sum_{m} M_{m}^{\dagger} M_{m}=I\)</span>, we get</p>
+<div class="arithmatex">\[
+\begin{align*}
+\langle\varphi|\langle 0| U^{\dagger} U|\psi\rangle|0\rangle
+&amp;=\sum_{m, m^{\prime}}\langle\varphi| M_{m}^{\dagger} M_{m^{\prime}}|\psi\rangle\langle m|m^{\prime}\rangle \\
+&amp;=\sum_{m}\langle\varphi| M_{m}^{\dagger} M_{m}|\psi\rangle \\
+&amp;=\langle\varphi|\psi\rangle.
+\end{align*}
+\]</div>
+<p>By the results of <strong>Lemma 2.2.35</strong>, <span class="arithmatex">\(U\)</span> can be extended to a unitary operator on <span class="arithmatex">\(Q\otimes M\)</span>, and we continue to denote it by <span class="arithmatex">\(U\)</span>.
+Next, we measure the composite system with projectors <span class="arithmatex">\(P_{m}\equiv I_{Q}\otimes|m\rangle\langle m|\)</span>.
+Outcome <span class="arithmatex">\(m\)</span> occurs with probability</p>
+<div class="arithmatex">\[
+\begin{align*}
+p(m) &amp;=\langle\psi|\langle 0| U^{\dagger} P_{m} U|\psi\rangle|0\rangle \\
+&amp;=\sum_{m^{\prime},m^{\prime\prime}}\langle\psi| M_{m^{\prime}}^{\dagger}\langle m^{\prime}|\left(I_{Q}\otimes|m\rangle\langle m|\right) M_{m^{\prime\prime}}|\psi\rangle|m^{\prime\prime}\rangle \\
+&amp;=\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle.
+\end{align*}
+\]</div>
+<p>The post-measurement joint state conditioned on <span class="arithmatex">\(m\)</span> is</p>
+<div class="arithmatex">\[
+\frac{P_{m} U|\psi\rangle|0\rangle}{\sqrt{\langle\psi| U^{\dagger} P_{m} U|\psi\rangle}}=
+\frac{M_{m}|\psi\rangle|m\rangle}{\sqrt{\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle}}.
+\]</div>
+<p>This gives ancilla state <span class="arithmatex">\(|m\rangle\)</span> and system state</p>
+<div class="arithmatex">\[
+\frac{M_{m}|\psi\rangle}{\sqrt{\langle\psi| M_{m}^{\dagger} M_{m}|\psi\rangle}}.
+\]</div>
+<p>Therefore, unitary dynamics, projective measurements, and ancillas together realize any measurement of the form specified in Postulate 3.</p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 2.2.37 : Entangled state</p>
+<p>A state of a composite system is called an <strong>entangled state</strong> if it cannot be written as a product of states of its component systems.</p>
+<p>For reasons which nobody fully understands, entangled states play a crucial role in quantum computation and quantum information.
+They arise repeatedly throughout the rest of this book.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 2.2.38 : <span class="arithmatex">\(\frac{|00\rangle+|11\rangle}{\sqrt{2}}\)</span> is entangled</p>
+<p>The two-qubit state</p>
+<div class="arithmatex">\[
+|\psi\rangle=\frac{|00\rangle+|11\rangle}{\sqrt{2}}
+\]</div>
+<p>cannot be written as a tensor product of single-qubit states.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Suppose <span class="arithmatex">\(|a\rangle\)</span> and <span class="arithmatex">\(|b\rangle\)</span> are single qubit states such that <span class="arithmatex">\(|\psi\rangle=|a\rangle|b\rangle\)</span>.
+Write <span class="arithmatex">\(|a\rangle=a_0|0\rangle+a_1|1\rangle\)</span> and <span class="arithmatex">\(|b\rangle=b_0|0\rangle+b_1|1\rangle\)</span>.
+Then</p>
+<div class="arithmatex">\[
+|a\rangle|b\rangle=a_0b_0|00\rangle+a_0b_1|01\rangle+a_1b_0|10\rangle+a_1b_1|11\rangle.
+\]</div>
+<p>Matching coefficients with <span class="arithmatex">\(|\psi\rangle\)</span> gives <span class="arithmatex">\(a_0b_0=\frac{1}{\sqrt{2}}\)</span>, <span class="arithmatex">\(a_0b_1=0\)</span>, <span class="arithmatex">\(a_1b_0=0\)</span>, and <span class="arithmatex">\(a_1b_1=\frac{1}{\sqrt{2}}\)</span>.
+From <span class="arithmatex">\(a_1b_1=\frac{1}{\sqrt{2}}\)</span>, we get <span class="arithmatex">\(a_1\neq0\)</span> and <span class="arithmatex">\(b_1\neq0\)</span>.
+Then <span class="arithmatex">\(a_1b_0=0\)</span> implies <span class="arithmatex">\(b_0=0\)</span>.
+But then <span class="arithmatex">\(a_0b_0=\frac{1}{\sqrt{2}}\)</span> cannot hold.
+Therefore no such pair <span class="arithmatex">\(|a\rangle\)</span>, <span class="arithmatex">\(|b\rangle\)</span> exists.</p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/arnold518" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
