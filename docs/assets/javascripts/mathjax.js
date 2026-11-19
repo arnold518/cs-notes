@@ -1,4 +1,15 @@
 window.MathJax = {
+    startup: {
+      ready: () => {
+        MathJax.startup.defaultReady();
+        MathJax.startup.promise.then(() => {
+          // document$ emits immediately, so subscribe after initialization.
+          document$.subscribe(() => {
+            MathJax.typesetPromise();
+          });
+        });
+      }
+    },
     loader: {load: ['[tex]/color']},
     tex: {
       inlineMath: [["\\(", "\\)"]],
@@ -12,8 +23,3 @@ window.MathJax = {
       processHtmlClass: "arithmatex"
     }
   };
-  
-  document$.subscribe(() => { 
-    MathJax.typesetPromise()
-  })
-  

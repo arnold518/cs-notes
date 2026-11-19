@@ -32,6 +32,7 @@ img.center {
   --md-admonition-icon--proof: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg>');
   --md-admonition-icon--example: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>');
   --md-admonition-icon--code: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>');
+  --md-admonition-icon--algorithm: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M81.816,67.398l3.04-5.279c0.179-0.31,0.179-0.69,0-1s-0.509-0.5-0.866-0.5h-2.573v-8.203c0-0.829-0.672-1.5-1.5-1.5H62.911  L51.735,39.74l3.204-5.564c0.179-0.31,0.179-0.69,0-1s-0.509-0.5-0.866-0.5h-2.656v-5.26h18.387c2.206,0,4-1.794,4-4v-14  c0-2.206-1.794-4-4-4H30.03c-2.206,0-4,1.794-4,4v6.5H8.417c-0.828,0-1.5,0.671-1.5,1.5v35c0,0.829,0.672,1.5,1.5,1.5h7.5  c0.828,0,1.5-0.671,1.5-1.5s-0.672-1.5-1.5-1.5h-6v-32H26.03v4.5c0,2.206,1.794,4,4,4h18.387v5.26h-2.49  c-0.357,0-0.688,0.19-0.866,0.5s-0.179,0.69,0,1l3.144,5.459L36.922,50.917H32.5c-0.828,0-1.5,0.671-1.5,1.5s0.672,1.5,1.5,1.5  h4.422l11.581,11.581c0.375,0.375,0.884,0.586,1.414,0.586s1.039-0.211,1.414-0.586l11.58-11.581h15.506v6.703h-2.574  c-0.357,0-0.688,0.19-0.866,0.5s-0.179,0.69,0,1l3.041,5.279c-6.149,0.861-11,5.815-11.681,12.019h-5.17c-0.828,0-1.5,0.671-1.5,1.5  s0.672,1.5,1.5,1.5h5.17c0.75,6.832,6.552,12.167,13.58,12.167c7.535,0,13.666-6.131,13.666-13.667  C93.583,74.027,88.453,68.327,81.816,67.398z M30.03,9.417h39.773l-0.006,14H30.03V9.417z M52.344,34.677L50,38.746l-2.344-4.069  H52.344z M49.917,61.255l-8.839-8.838l8.839-8.838l8.838,8.838L49.917,61.255z M82.261,62.62l-2.344,4.069l-2.344-4.069H82.261z   M79.917,90.583c-5.33,0-9.667-4.336-9.667-9.667c0-5.33,4.337-9.667,9.667-9.667s9.666,4.336,9.666,9.667  C89.583,86.247,85.247,90.583,79.917,90.583z M30.292,80.917c0,0.829-0.672,1.5-1.5,1.5h-4.667c-0.828,0-1.5-0.671-1.5-1.5v-27  H21.25c-0.828,0-1.5-0.671-1.5-1.5s0.672-1.5,1.5-1.5H27c0.828,0,1.5,0.671,1.5,1.5s-0.672,1.5-1.5,1.5h-1.375v25.5h3.167  C29.62,79.417,30.292,80.088,30.292,80.917z M42.291,80.917c0,0.829-0.672,1.5-1.5,1.5h-6.249c-0.828,0-1.5-0.671-1.5-1.5  s0.672-1.5,1.5-1.5h6.249C41.619,79.417,42.291,80.088,42.291,80.917z M56.917,80.917c0,0.829-0.672,1.5-1.5,1.5h-6.5  c-0.828,0-1.5-0.671-1.5-1.5s0.672-1.5,1.5-1.5h6.5C56.245,79.417,56.917,80.088,56.917,80.917z"/></svg>');
 }
 
 .md-typeset .admonition.proof,
@@ -151,6 +152,23 @@ img.center {
   background-color: rgb(236, 42, 210);
   -webkit-mask-image: var(--md-admonition-icon--code);
           mask-image: var(--md-admonition-icon--code);
+}
+
+.md-typeset .admonition.algorithm,
+.md-typeset details.algorithm {
+  border-color: rgb(236, 42, 210);
+  text-align: left;
+}
+.md-typeset .algorithm > .admonition-title,
+.md-typeset .algorithm > summary {
+  text-align: left;
+  background-color: rgba(236, 42, 210, 0.1);
+}
+.md-typeset .algorithm > .admonition-title::before,
+.md-typeset .algorithm > summary::before {
+  background-color: rgb(236, 42, 210);
+  -webkit-mask-image: var(--md-admonition-icon--algorithm);
+          mask-image: var(--md-admonition-icon--algorithm);
 }
 
 @media print {

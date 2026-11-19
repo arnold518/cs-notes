@@ -1,0 +1,27 @@
+# Local builds and environments
+/site/
+/.cache/
+/.venv/
+/venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# LaTeX compilation intermediates
+*.aux
+*.log
+*.out
+*.toc
+*.nav
+*.snm
+*.vrb
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Local agent marker, backups, and operating-system files
+/.codex
+*.bak
+*.bak.*
+.DS_Store

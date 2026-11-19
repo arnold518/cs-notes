@@ -6,6 +6,34 @@ repo_name: arnold518/cs-notes
 
 repo_url: https://github.com/arnold518/cs-notes
 
+# Keep source and authoring material out of the site and search index.
+exclude_docs: |
+  **/blueprints/
+  **/mapping.md
+  **/AGENTS.md
+  **/*.bak
+  **/*.bak.*
+  **/*.tex
+  **/*.aux
+  **/*.log
+  **/*.out
+  **/*.toc
+  **/*.nav
+  **/*.snm
+  **/*.vrb
+  /mfdnn/*.md
+  /rl/RLbook2020.md
+  /qcqi/*QCQI.md
+  /paper-review/1.2.md
+  /paper-review/1.3.md
+  /paper-review/1.4.md
+  /paper-review/1.6.md
+  /paper-review/2.5.md
+  /qcqi/2.3.md
+
+not_in_nav: |
+  /tags.md
+
 theme:
   name: material
   features:
@@ -63,7 +91,6 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
@@ -78,12 +105,12 @@ extra_javascript:
 
 extra_css:
   - assets/stylesheets/extra.css
+  - assets/stylesheets/home.css
 
 plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  - tags:
-      tags_file: tags.md
+  - tags
 
 extra:
   social:
@@ -93,13 +120,11 @@ extra:
 
 nav:
   - Home: index.md
-  - AI Paper Review:
+  - Paper Review:
       - paper-review/index.md
-      - 1. RNN: paper-review/1.md
-      - 2. LSTM: paper-review/2.md
-      - 3. Sequence-to-Sequence: paper-review/3.md
-      - 4. Attention: paper-review/4.md
-      - 5. Transformer: paper-review/5.md
+      - 1. Artificial Intelligence:
+          - 1.1. Recurrent Neural Network: paper-review/1.1.md
+          - 1.5. Transformer: paper-review/1.5.md
   - Mathematical Foundations of Deep Neural Networks:
       - mfdnn/format/index.md
       - Ch 1. Optimization and Stochastic Gradient Descent:
@@ -133,22 +158,11 @@ nav:
           - Python Lecture 3: https://drive.google.com/file/d/1-Bc11RZmno6yx37kfVLjsyY-XKpLK5Je/view?usp=drive_link
   - Reinforcement Learning:
       - rl/index.md
-      - Ch 1. Tabular Solution Methods:
-          - 2. Multi-armed Bandits : rl/2.md
-          - 3. Finite Markov Decision Processes : rl/3.md
-          - 4. Dynamic Programming : rl/4.md
-          - 5. Monte Carlo Methods : rl/5.md
-          - 6. Temporal-Difference Learning : rl/6.md
-          - 7. n-step Bootstrapping : rl/7.md
-          - 8. Planning and Learning with Tabular Methods : rl/8.md
-      - Ch 2. Approximate Solution Methods:
-          - 9. On-policy Prediction with Approximation : rl/9.md
-          - 10. On-policy Control with Approximation : rl/10.md
-          - 11. Off-policy Methods with Approximation : rl/11.md
-          - 12. Eligibility Traces : rl/12.md
-          - 13. Policy Gradient Methods : rl/13.md
-      - Ch 3. Looking Deeper:
-          - 14. Psychology : rl/14.md
-          - 15. NeuroScience : rl/15.md
-          - 16. Applications and Case Studies : rl/16.md
-          - 17. Frontiers : rl/17.md
+  - Quantum Computation and Quantum Information:
+      - qcqi/index.md
+      - Ch 2. Introduction to Quantum Mechanics:
+          - 2.1. Linear Algebra : qcqi/2.1.md
+          - 2.2. The Postulates of Quantum Mechanics : qcqi/2.2.md
+          - 2.4. The Density Operator : qcqi/2.4.md
+      - Ch 4. Quantum Circuits:
+          - 4.2. Single Qubit Operations : qcqi/4.2.md

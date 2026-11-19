@@ -1,0 +1,103 @@
+@page {
+  size: A4;
+  margin: 17mm 17mm 19mm;
+
+  @bottom-left {
+    content: "QCQI · 2.1 Linear Algebra";
+    font-family: "Noto Sans", sans-serif;
+    font-size: 8pt;
+    color: #667085;
+  }
+
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font-family: "Noto Sans", sans-serif;
+    font-size: 8pt;
+    color: #667085;
+  }
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  background: white !important;
+  color: #20242c !important;
+  font-family: "Noto Sans", "DejaVu Sans", sans-serif;
+}
+
+.md-container, .md-main, .md-main__inner, .md-content, .md-content__inner {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+}
+
+.md-footer, .md-header, .md-sidebar, .md-tabs, .md-top,
+.md-content__button, .headerlink, .md-source-file {
+  display: none !important;
+}
+
+.md-typeset {
+  width: 176mm;
+  font-size: 10.5pt;
+  line-height: 1.5;
+}
+
+.md-typeset h1 {
+  margin: 0 0 6mm;
+  color: #20242c;
+  font-size: 22pt;
+}
+
+.md-typeset h2 {
+  margin: 6mm 0 3mm;
+  font-size: 15pt;
+}
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3,
+.md-typeset .admonition-title {
+  break-after: avoid;
+}
+
+.md-typeset p, .md-typeset li {
+  orphans: 1;
+  widows: 1;
+}
+
+.md-typeset p {
+  break-inside: avoid;
+}
+
+.md-typeset .admonition, .md-typeset details {
+  font-size: 10.5pt;
+  line-height: 1.5;
+  box-shadow: none;
+  margin: 3.5mm 0;
+  break-inside: avoid;
+}
+
+.md-typeset .admonition.pdf-long, .md-typeset details.pdf-long {
+  // Only boxes taller than one printable page need to split.
+  break-before: page;
+  break-inside: auto;
+}
+
+.md-typeset .admonition-title {
+  line-height: 1.4;
+}
+
+.md-typeset div.arithmatex {
+  overflow: visible;
+  break-inside: avoid;
+}
+
+.md-typeset mjx-container[display="true"] {
+  margin: 0.8em 0 !important;
+}
+
+.md-typeset img, .md-typeset table {
+  max-width: 100%;
+  break-inside: avoid;
+}
